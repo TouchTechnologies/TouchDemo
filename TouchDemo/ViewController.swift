@@ -14,6 +14,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var alert = SweetAlert()
     var proximityContentManager: ProximityContentManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +56,18 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
                 break
                 
             }
-            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
+            SweetAlert().showAlert("Are you sure?", subTitle: "You file will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.redColor() , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.blueColor()) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed")
+                }
+                else {
+                    SweetAlert().showAlert("Deleted!", subTitle: "Your imaginary file has been deleted!", style: AlertStyle.Success)
+                }
+            }
+//            self.presentViewController(alert, animated: true, completion: nil)
         } else {
             self.view.backgroundColor = BeaconDetails.neutralColor
             self.label.text = "No beacons in range."

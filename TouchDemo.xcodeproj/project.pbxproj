@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2306EFE00B33D7D46EC54376 /* Pods_TouchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E2AA16135007E518CF92C0 /* Pods_TouchDemo.framework */; };
+		362305981D5095F300A4AC9E /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362305971D5095F300A4AC9E /* SweetAlert.swift */; };
 		369FAB571D504C820062AC88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FAB561D504C820062AC88 /* AppDelegate.swift */; };
 		369FAB591D504C820062AC88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FAB581D504C820062AC88 /* ViewController.swift */; };
 		369FAB5C1D504C820062AC88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369FAB5A1D504C820062AC88 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		2A16385F7A8DD10CC895597F /* Pods-TouchDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TouchDemoUITests/Pods-TouchDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		362305971D5095F300A4AC9E /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		369FAB531D504C820062AC88 /* TouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369FAB561D504C820062AC88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		369FAB581D504C820062AC88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		362305951D5095D300A4AC9E /* SweetAlert */ = {
+			isa = PBXGroup;
+			children = (
+				362305971D5095F300A4AC9E /* SweetAlert.swift */,
+			);
+			name = SweetAlert;
+			sourceTree = "<group>";
+		};
+		362305961D5095E200A4AC9E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				362305951D5095D300A4AC9E /* SweetAlert */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		369FAB4A1D504C820062AC88 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +153,7 @@
 		369FAB551D504C820062AC88 /* TouchDemo */ = {
 			isa = PBXGroup;
 			children = (
+				362305961D5095E200A4AC9E /* Class */,
 				369FAB9A1D504E7F0062AC88 /* Assets */,
 				369FAB841D504CFA0062AC88 /* Estimote */,
 				369FAB561D504C820062AC88 /* AppDelegate.swift */,
@@ -487,6 +506,7 @@
 				369FAB961D504D070062AC88 /* CachingContentFactory.swift in Sources */,
 				369FAB901D504D070062AC88 /* BeaconNotificationsManager.swift in Sources */,
 				369FAB8F1D504D070062AC88 /* HeroIconManager.swift in Sources */,
+				362305981D5095F300A4AC9E /* SweetAlert.swift in Sources */,
 				369FAB981D504D070062AC88 /* ProximityContentManager.swift in Sources */,
 				369FAB941D504D070062AC88 /* BeaconDetailsStaticFactory.swift in Sources */,
 				369FAB931D504D070062AC88 /* BeaconDetailsCloudFactory.swift in Sources */,
