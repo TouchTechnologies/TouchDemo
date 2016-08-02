@@ -7,6 +7,9 @@ target 'TouchDemo' do
 
   # Pods for TouchDemo
   pod 'EstimoteSDK'
+#  pod 'SweetAlert' , :git => 'https://github.com/codestergit/SweetAlert-iOS'
+  pod 'SCLAlertView'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
   target 'TouchDemoTests' do
     inherit! :search_paths
     # Pods for testing

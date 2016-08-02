@@ -1,12 +1,28 @@
 PODS:
   - EstimoteSDK (4.7.2)
+  - SCLAlertView (0.5.9)
+  - Spring (1.0.3)
 
 DEPENDENCIES:
   - EstimoteSDK
+  - SCLAlertView
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   EstimoteSDK: d57900b6b6f3a205cba0a17420e658eded62b105
+  SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 4107e374e3f6ba5f31d894b20a4e6833c2a1696c
+PODFILE CHECKSUM: a9c7452cc66f7c241581bfdf907387aca3938b6c
 
 COCOAPODS: 1.0.1
