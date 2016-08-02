@@ -47,10 +47,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
             
             switch beaconDetails.beaconName {
             case "mint":
+                 self.alert.dismissViewControllerAnimated(true, completion: nil)
                 alertMessage = "This is \(beaconDetails.beaconName)"
             case "ice":
+                 self.alert.dismissViewControllerAnimated(true, completion: nil)
                 alertMessage = "This is \(beaconDetails.beaconName)"
             case "blueberry":
+                 self.alert.dismissViewControllerAnimated(true, completion: nil)
                 alertMessage = "This is \(beaconDetails.beaconName)"
             default:
                 break
@@ -58,16 +61,16 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
             }
 //            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert)
 //            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
-            SweetAlert().showAlert("Are you sure?", subTitle: "You file will permanently delete!", style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.redColor() , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.blueColor()) { (isOtherButton) -> Void in
+            alert.showAlert(alertTitle, subTitle: alertMessage, style: AlertStyle.Warning, buttonTitle:"Cancel", buttonColor:UIColor.redColor() , otherButtonTitle:  "Yes, delete it!", otherButtonColor: UIColor.blueColor()) { (isOtherButton) -> Void in
                 if isOtherButton == true {
-                    
+                    self.alert.dismissViewControllerAnimated(true, completion: nil)
                     print("Cancel Button  Pressed")
                 }
                 else {
                     SweetAlert().showAlert("Deleted!", subTitle: "Your imaginary file has been deleted!", style: AlertStyle.Success)
                 }
             }
-//            self.presentViewController(alert, animated: true, completion: nil)
+            
         } else {
             self.view.backgroundColor = BeaconDetails.neutralColor
             self.label.text = "No beacons in range."
