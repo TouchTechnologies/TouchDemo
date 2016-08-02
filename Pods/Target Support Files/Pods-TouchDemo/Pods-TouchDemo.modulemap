@@ -1,0 +1,6 @@
+framework module Pods_TouchDemo {
+  umbrella header "Pods-TouchDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
