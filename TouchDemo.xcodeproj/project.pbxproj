@@ -297,6 +297,7 @@
 				TargetAttributes = {
 					369FAB521D504C820062AC88 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 28WCARLR9T;
 					};
 					369FAB661D504C820062AC88 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -640,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96E9FE870AE389446D6A74D3 /* Pods-TouchDemo.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemo;
@@ -652,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6245ADC4314A6F49ABBF9AC3 /* Pods-TouchDemo.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemo;
