@@ -1,11 +1,19 @@
 PODS:
   - EstimoteSDK (4.7.2)
+  - KDCycleBannerView (1.1.1):
+    - SDWebImage
   - SCLAlertView (0.5.9)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SnapKit (0.15.0)
   - Spring (1.0.3)
 
 DEPENDENCIES:
-  - EstimoteSDK
+  - EstimoteSDK (= 4.7.2)
+  - KDCycleBannerView
   - SCLAlertView
+  - SnapKit (~> 0.15.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
 
 EXTERNAL SOURCES:
@@ -20,9 +28,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   EstimoteSDK: d57900b6b6f3a205cba0a17420e658eded62b105
+  KDCycleBannerView: 6dbac2cda6b1a6f4e27b65d66249ecd966403b8b
   SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: a9c7452cc66f7c241581bfdf907387aca3938b6c
+PODFILE CHECKSUM: 2f1afec93fa4fa6487d81a53649f5fc52ad4e16e
 
 COCOAPODS: 1.0.1

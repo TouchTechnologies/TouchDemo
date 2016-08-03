@@ -4,45 +4,60 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KDCycleBannerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TouchDemo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-TouchDemoTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-TouchDemoUITests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Spring.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>079BC498DA2DE1AB274303E330A7B6B5</key>
+		<key>1F21262F254E18499A7B60BA4953FF43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E2E18FF74D7894214C22691D7D44DB8</key>
+		<key>3BBE1C7BA4080C704E5A0668E2AEF173</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42D82B6100C3295EB6653F5A54CDFE78</key>
+		<key>41FDE227A4E82C5930D5B37764EB1528</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DCB76E65BD5A3300CF428DF17B27434F</key>
+		<key>5F069A69E2D52301CA39FB6AFD4E3922</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D68290E0648BC688F3F922BE94694002</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD9EF2D7B7F08884BBEECB0D6734B839</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2306EFE00B33D7D46EC54376 /* Pods_TouchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E2AA16135007E518CF92C0 /* Pods_TouchDemo.framework */; };
+		2306EFE00B33D7D46EC54376 /* Pods_TouchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E2AA16135007E518CF92C0 /* Pods_TouchDemo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		362305981D5095F300A4AC9E /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362305971D5095F300A4AC9E /* SweetAlert.swift */; };
 		369FAB571D504C820062AC88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FAB561D504C820062AC88 /* AppDelegate.swift */; };
 		369FAB591D504C820062AC88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369FAB581D504C820062AC88 /* ViewController.swift */; };
@@ -74,6 +74,7 @@
 		369FAB8D1D504D070062AC88 /* NearestBeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NearestBeaconManager.swift; path = EstimoteLib/NearestBeaconManager.swift; sourceTree = "<group>"; };
 		369FAB8E1D504D070062AC88 /* ProximityContentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityContentManager.swift; path = EstimoteLib/ProximityContentManager.swift; sourceTree = "<group>"; };
 		369FAB991D504D550062AC88 /* TouchDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B61B07C1D519C960059DCE8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TouchDemo-bhwnlqybdpnjeebbvcybgjxvdfrc/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		49B1F36BE40028E4252C0915 /* Pods_TouchDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6245ADC4314A6F49ABBF9AC3 /* Pods-TouchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TouchDemo/Pods-TouchDemo.release.xcconfig"; sourceTree = "<group>"; };
 		82E2AA16135007E518CF92C0 /* Pods_TouchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +234,7 @@
 		EE68225BB59CE6DFAFDD5C7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B61B07C1D519C960059DCE8 /* SnapKit.framework */,
 				82E2AA16135007E518CF92C0 /* Pods_TouchDemo.framework */,
 				99B12BF44B63B5F212276269 /* Pods_TouchDemoTests.framework */,
 				49B1F36BE40028E4252C0915 /* Pods_TouchDemoUITests.framework */,
@@ -663,8 +665,9 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.Touchtechnologies.TouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TouchDemo/TouchDemo-Bridging-Header.h";
 			};
@@ -676,8 +679,9 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.Touchtechnologies.TouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TouchDemo/TouchDemo-Bridging-Header.h";
 			};

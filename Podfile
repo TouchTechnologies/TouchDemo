@@ -6,10 +6,14 @@ target 'TouchDemo' do
   use_frameworks!
 
   # Pods for TouchDemo
-  pod 'EstimoteSDK'
+  pod 'EstimoteSDK', '4.7.2'
 #  pod 'SweetAlert' , :git => 'https://github.com/codestergit/SweetAlert-iOS'
   pod 'SCLAlertView'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+  pod 'SnapKit', '~> 0.15.0'
+#  pod 'EAIntroView'
+  pod 'KDCycleBannerView'
+  
   target 'TouchDemoTests' do
     inherit! :search_paths
     # Pods for testing

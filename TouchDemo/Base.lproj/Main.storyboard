@@ -16,56 +16,12 @@
                     <view key="view" contentMode="scaleToFill" id="7GD-Li-UGE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for beacons …" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g78-dP-Hgg">
-                                <rect key="frame" x="16" y="418" width="568" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="xZT-Nq-2VP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon" translatesAutoresizingMaskIntoConstraints="NO" id="xq7-Oh-Fdk">
-                                <rect key="frame" x="220" y="158" width="160" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="8sG-kb-Fk2"/>
-                                    <constraint firstAttribute="width" constant="160" id="RuG-99-qRa"/>
-                                </constraints>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iAg-nA-VGb">
-                                <rect key="frame" x="282" y="490" width="37" height="37"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.62745098040000002" green="0.66274509800000003" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="g78-dP-Hgg" secondAttribute="centerY" constant="-150" id="NIp-2j-vy9"/>
-                            <constraint firstItem="g78-dP-Hgg" firstAttribute="width" secondItem="7GD-Li-UGE" secondAttribute="width" constant="-32" id="ZaV-ny-sSE"/>
-                            <constraint firstAttribute="centerY" secondItem="iAg-nA-VGb" secondAttribute="centerY" constant="-208.5" id="aDA-Xf-ZKZ"/>
-                            <constraint firstAttribute="centerX" secondItem="g78-dP-Hgg" secondAttribute="centerX" id="c4T-wq-pf8"/>
-                            <constraint firstItem="iAg-nA-VGb" firstAttribute="top" secondItem="g78-dP-Hgg" secondAttribute="bottom" constant="8" id="cvH-1w-UyO"/>
-                            <constraint firstAttribute="centerX" secondItem="iAg-nA-VGb" secondAttribute="centerX" id="etS-Aj-6Ga"/>
-                            <constraint firstItem="g78-dP-Hgg" firstAttribute="top" secondItem="xq7-Oh-Fdk" secondAttribute="bottom" constant="50" id="fvF-zn-6hq"/>
-                            <constraint firstAttribute="centerX" secondItem="xq7-Oh-Fdk" secondAttribute="centerX" id="wi1-1P-h6u"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="aDA-Xf-ZKZ"/>
-                            </mask>
-                        </variation>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="iAg-nA-VGb" id="oUn-hr-l6O"/>
-                        <outlet property="image" destination="xq7-Oh-Fdk" id="lcP-hu-ZDI"/>
-                        <outlet property="label" destination="g78-dP-Hgg" id="MrF-TT-A4Q"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENZ-sS-CET" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="498" y="458"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Beacon" width="143" height="208"/>
-    </resources>
 </document>

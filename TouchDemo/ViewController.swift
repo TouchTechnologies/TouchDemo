@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController, ProximityContentManagerDelegate {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+//    @IBOutlet weak var label: UILabel!
+//    @IBOutlet weak var image: UIImageView!
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var alert = SweetAlert()
     var proximityContentManager: ProximityContentManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.activityIndicator.startAnimating()
+        design()
+        
+//        self.activityIndicator.startAnimating()
         
         self.proximityContentManager = ProximityContentManager(
             beaconIDs: [
@@ -34,13 +38,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
     }
     
     func proximityContentManager(proximityContentManager: ProximityContentManager, didUpdateContent content: AnyObject?) {
-        self.activityIndicator?.stopAnimating()
-        self.activityIndicator?.removeFromSuperview()
+//        self.activityIndicator?.stopAnimating()
+//        self.activityIndicator?.removeFromSuperview()
         
         if let beaconDetails = content as? BeaconDetails {
-            self.view.backgroundColor = beaconDetails.backgroundColor
-            self.label.text = "You're in \(beaconDetails.beaconName)'s range!"
-            self.image.hidden = false
+//            self.view.backgroundColor = beaconDetails.backgroundColor
+//            self.label.text = "You're in \(beaconDetails.beaconName)'s range!"
+//            self.image.hidden = false
             
             let alertTitle = "Found Beacon"
             var alertMessage = ""
@@ -72,9 +76,9 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
             }
             
         } else {
-            self.view.backgroundColor = BeaconDetails.neutralColor
-            self.label.text = "No beacons in range."
-            self.image.hidden = true
+//            self.view.backgroundColor = BeaconDetails.neutralColor
+//            self.label.text = "No beacons in range."
+//            self.image.hidden = true
         }
     }
     
@@ -88,6 +92,98 @@ class ViewController: UIViewController, ProximityContentManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //----------  View Set  -----------
+    lazy var  viewMainbackground = UIView()
+    lazy var  viewTitleBox = UIView()
+    lazy var  viewDescriptionBox = UIView()
+    //---------------------------------
+    
+    //----------  Image Set  ----------
+    lazy var  imgBackground = UIImageView()
+    lazy var  imgCircle = UIImageView()
+    //let imgCircle1 = UIImageView()
+    //let imgCircle2 = UIImageView()
+    //let imgCircle3 = UIImageView()
+    lazy var  imgTitleText = UIImageView()
+    lazy var  imgDescriptionText = UIImageView()
+    //---------------------------------
+    
+    //----------  Label Set  ----------
+    lazy var  lblBottom = UILabel()
+    //---------------------------------
+    
+    func design() {
+        
+        let frmView = self.view.frame
+        
+//        let frmMainbackground = CGRectMake(0, 0, frmView.size.width, frmView.size.width)
+//        viewMainbackground.frame = frmMainbackground
+      
+        
+//        let titleBoxSize = frmView.size.width - 50
+//        let frmTitleBox = CGRectMake(25, 40, titleBoxSize, titleBoxSize)
+//        viewTitleBox.frame = frmTitleBox
+        
+        
+        
+        
+        
+        
+        viewMainbackground.backgroundColor = UIColor.greenColor()
+        viewTitleBox.backgroundColor = UIColor.blueColor()
+        viewDescriptionBox.backgroundColor = UIColor.yellowColor()
+        
+        
+        
+        
+        
+        
+        
+        
+        self.viewMainbackground.addSubview(imgBackground)
+        self.viewTitleBox.addSubview(imgCircle)
+        self.viewTitleBox.addSubview(imgTitleText)
+        self.viewDescriptionBox.addSubview(imgDescriptionText)
+        
+        self.view.addSubview(viewMainbackground)
+        self.view.addSubview(viewTitleBox)
+        self.view.addSubview(viewDescriptionBox)
+        
+        
+        //-- -- -- -- -- -- -- -- -- -- --
+        
+        
+        viewMainbackground.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
+        
+        
+        let titleBoxSize = frmView.size.width - 50
+        viewTitleBox.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(45)
+//            make.width.equalTo(titleBoxSize)
+//            make.height.equalTo(titleBoxSize)
+            make.size.equalTo(CGSizeMake(titleBoxSize, titleBoxSize))
+//            make.left.equalTo(0)
+//            make.bottom.equalTo(0)
+//            make.right.equalTo(0)
+            make.center.equalTo(viewMainbackground)
+        }
 
+        
+//        viewDescriptionBox.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(viewTitleBox).offset(20)
+//            make.top.equalTo(0)
+//            make.left.equalTo(0)
+//            make.bottom.equalTo(0)
+//            make.right.equalTo(0)
+//        }
+//        
+        
+    }
 }
 

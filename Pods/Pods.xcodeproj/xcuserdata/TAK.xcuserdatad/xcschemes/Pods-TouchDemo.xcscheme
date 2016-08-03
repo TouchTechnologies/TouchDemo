@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42D82B6100C3295EB6653F5A54CDFE78"
+               BlueprintIdentifier = "3BBE1C7BA4080C704E5A0668E2AEF173"
                BuildableName = "Pods_TouchDemo.framework"
                BlueprintName = "Pods-TouchDemo"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42D82B6100C3295EB6653F5A54CDFE78"
+            BlueprintIdentifier = "3BBE1C7BA4080C704E5A0668E2AEF173"
             BuildableName = "Pods_TouchDemo.framework"
             BlueprintName = "Pods-TouchDemo"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42D82B6100C3295EB6653F5A54CDFE78"
-            BuildableName = "Pods_TouchDemo.framework"
-            BlueprintName = "Pods-TouchDemo"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
