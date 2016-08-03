@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "369FAB521D504C820062AC88"
-               BuildableName = "TouchDemo.app"
-               BlueprintName = "TouchDemo"
-               ReferencedContainer = "container:TouchDemo.xcodeproj">
+               BuildableName = "Tourist.app"
+               BlueprintName = "Tourist"
+               ReferencedContainer = "container:Tourist.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "369FAB661D504C820062AC88"
-               BuildableName = "TouchDemoTests.xctest"
-               BlueprintName = "TouchDemoTests"
-               ReferencedContainer = "container:TouchDemo.xcodeproj">
+               BuildableName = "Tourist.xctest"
+               BlueprintName = "TouristTests"
+               ReferencedContainer = "container:Tourist.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "369FAB711D504C820062AC88"
-               BuildableName = "TouchDemoUITests.xctest"
-               BlueprintName = "TouchDemoUITests"
-               ReferencedContainer = "container:TouchDemo.xcodeproj">
+               BuildableName = "Tourist.xctest"
+               BlueprintName = "TouristUITests"
+               ReferencedContainer = "container:Tourist.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "369FAB521D504C820062AC88"
-            BuildableName = "TouchDemo.app"
-            BlueprintName = "TouchDemo"
-            ReferencedContainer = "container:TouchDemo.xcodeproj">
+            BuildableName = "Tourist.app"
+            BlueprintName = "Tourist"
+            ReferencedContainer = "container:Tourist.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "369FAB521D504C820062AC88"
-            BuildableName = "TouchDemo.app"
-            BlueprintName = "TouchDemo"
-            ReferencedContainer = "container:TouchDemo.xcodeproj">
+            BuildableName = "Tourist.app"
+            BlueprintName = "Tourist"
+            ReferencedContainer = "container:Tourist.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "369FAB521D504C820062AC88"
-            BuildableName = "TouchDemo.app"
-            BlueprintName = "TouchDemo"
-            ReferencedContainer = "container:TouchDemo.xcodeproj">
+            BuildableName = "Tourist.app"
+            BlueprintName = "Tourist"
+            ReferencedContainer = "container:Tourist.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

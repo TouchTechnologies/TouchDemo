@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate {
 
     var window: UIWindow?
-
+    
 
     let heroIconManager = HeroIconManager()
     let beaconNotificationsManager = BeaconNotificationsManager()
+    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         ESTConfig.setupAppID("touchdemo-fen", andAppToken: "c6fda9bcf6dc54cfb4ae9c94aea9e8ca")
@@ -30,25 +32,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         
         self.beaconNotificationsManager.enableNotificationsForBeaconID(
             BeaconID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE01", major: 4225, minor: 21861),//mint
-            enterMessage: "Hello, Mint.",
-            exitMessage: "Goodbye, Mint."
+            enterMessage: "Hi, Connect me",
+            exitMessage:nil// "Goodbye, Mint."
         )
         self.beaconNotificationsManager.enableNotificationsForBeaconID(
             BeaconID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE02", major: 62648, minor: 16128),//ice
-            enterMessage: "Hello, ice.",
-            exitMessage: "Goodbye, ice."
+            enterMessage: "Hi, Connect me",
+            exitMessage:nil// "Goodbye, ice."
         )
         self.beaconNotificationsManager.enableNotificationsForBeaconID(
             BeaconID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE03", major: 20999, minor: 49007),//blueberry
-            enterMessage: "Hello, blueberry.",
-            exitMessage: "Goodbye, blueberry."
+            enterMessage: "Hi, Connect me",
+            exitMessage:nil// "Goodbye, blueberry."
         )
+        
+        
+        
+        
+        //UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
+//        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(AppDelegate.setFakeValue), userInfo: nil, repeats: false)
+//        
+//        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(AppDelegate.setFakeValue2), userInfo: nil, repeats: false)
         
         // NOTE: "exit" event has a built-in delay of 30 seconds, to make sure that the user has really exited the beacon's range. The delay is imposed by iOS and is non-adjustable.
         
         return true
     }
-
+    
+//    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+//        
+//        print("didEnterRegion")
+//        print(manager)
+//        print(region)
+//        print("--------------")
+//        
+//    }
+//    
+//    func beaconManager(manager: AnyObject, didExitRegion region: CLBeaconRegion) {
+//        
+//        print("didExitRegion")
+//        print(manager)
+//        print(region)
+//        print("--------------")
+//        
+//    }
+  
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
