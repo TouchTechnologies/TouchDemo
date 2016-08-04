@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "smart_p3.png",
+      "filename" : "smart_p3@2x-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "smart_p3@2x.png",
+      "filename" : "smart_p3@3x-1.png",
       "scale" : "2x"
     },
     {

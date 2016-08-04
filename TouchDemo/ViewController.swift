@@ -20,9 +20,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     var alert = SweetAlert()
     var proximityContentManager: ProximityContentManager!
     
+    let timerForOpenAgain = 20
     
     var bannerIsShow = false
     var bannerSet = 0
+    var lastClosedSet = 0
+    
+    var tmDisplay = 0
     
     
     override func viewWillAppear(animated: Bool) {
@@ -31,12 +35,50 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
 
     }
     
+    func alert1() {
+        
+        print(" >>>>>>>>>>>>>>>> call func alert1() >>>>>>>>>>>>>>>> ")
+        bannerSet = 1
+        sayHello(bannerSet)
+        
+    }
+    
+    func alert2() {
+        
+        print(" >>>>>>>>>>>>>>>> call func alert2() >>>>>>>>>>>>>>>> ")
+        bannerSet = 3
+        sayHello(bannerSet)
+        
+    }
+    
+    func alert3() {
+        
+        print(" >>>>>>>>>>>>>>>> call func alert3() >>>>>>>>>>>>>>>> ")
+        bannerSet = 2
+        sayHello(bannerSet)
+        
+    }
+    
+    func alert4() {
+        
+        print(" >>>>>>>>>>>>>>>> call func alert4() >>>>>>>>>>>>>>>> ")
+        bannerSet = 2
+        sayHello(bannerSet)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
 //        UIApplication.sharedApplication().statusBarStyle = .Default
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        
+        
+        
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(ViewController.alert1), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: #selector(ViewController.alert2), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(14.0, target: self, selector: #selector(ViewController.alert3), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(25.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
         
         
         frmView = self.view.frame
@@ -67,71 +109,36 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
             
             switch beaconDetails.beaconName {
             case "mint":
-                if(bannerSet != 1 && viewAlert.alpha >= 1 ){
-                    print("Close 'Mint' and Open \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 1
-                    bannerSet = 1
-                    closeBanner(true)
-                }else{
-                    print("sayHello 'Mint' \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 1
-                    bannerSet = 1
-                    sayHello()
-                }
+                bannerSet = 1
             case "blueberry":
-                 if(bannerSet != 2 && viewAlert.alpha >= 1 ){
-                    print("Close 'Blueberry' and Open \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 2
-                    bannerSet = 2
-                    closeBanner(true)
-                 }else{
-                    print("sayHello 'Blueberry' \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 2
-                    bannerSet = 2
-                    sayHello()
-                }
+                bannerSet = 2
             case "ice":
-                 if(bannerSet != 3 && viewAlert.alpha >= 1 ){
-                    print("Close 'Ice' and Open \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 3
-                    bannerSet = 3
-                    closeBanner(true)
-                 }else{
-                    print("sayHello 'Ice' \(beaconDetails.beaconName)")
-                    
-                    GlobalVariables.sharedManager.bannerSet = 3
-                    bannerSet = 3
-                    sayHello()
-                }
+                bannerSet = 3
             default:
                 break
                 
             }
+            sayHello(bannerSet)
+            
         } else {
             
-            var bName = ""
-            if let c = content as? BeaconDetails {
-                bName = c.beaconName
-            }
-            print("Close \(bName)")
+//            var bName = ""
+//            if let c = content as? BeaconDetails {
+//                bName = c.beaconName
+//            }
+//            print("Close \(bName)")
             
-            GlobalVariables.sharedManager.bannerIsShow = false
-            GlobalVariables.sharedManager.bannerSet = 0
-            bannerIsShow = false
-            bannerSet = 0
+//            GlobalVariables.sharedManager.bannerIsShow = false
+//            GlobalVariables.sharedManager.bannerSet = 0
+//            bannerIsShow = false
+//            bannerSet = 0
             
-            closeBanner()
+            //closeBanner()
         }
     }
     
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return .Default
     }
     
     override func didReceiveMemoryWarning() {
@@ -142,59 +149,131 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        //NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.getActionStatus), userInfo: nil, repeats: true)
     }
     
+    var tmr:NSTimer = NSTimer()
+    func tmTickTock() {
+        
+        self.tmDisplay = self.tmDisplay + 1
+//        print("tmTickTock")
+//        print("self.tmDisplay = \(self.tmDisplay)")
+//        print("-------------------------------------")
+        
+    }
     
-//    func getActionStatus() {
-//        
-////        var bannerIsShow = false
-//        //        var bannerSet = 0
-//        
-//        
-//        let bannerIsShow = GlobalVariables.sharedManager.bannerIsShow
-//        let bannerSet = GlobalVariables.sharedManager.bannerSet
-//        
-//        
-//        print("Display Action")
-//        print("bannerIsShow = \((bannerIsShow ? "show" : "hide"))")
-//        print("bannerSet = \(bannerSet)")
-//        print("----------------------")
-//        
-//        
-//    }
+    func tmStop() {
+        
+        self.tmr.invalidate()
+        //self.tmr = nil
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        tmStop()
+    }
 
-    func sayHello() {
+    func sayHello(bSet: Int = 0) {
         
-        viewBanner.reloadDataWithCompleteBlock({a in
-            if(self.viewAlert.alpha != 1){
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+//            print("++++++++++++++++++++++")
+//            print("self.viewAlert.alpha = \(self.viewAlert.alpha)")
+            print("self.lastClosedSet = \(self.lastClosedSet)")
+            print("self.bannerSet = \(self.bannerSet)")
+            print("self.tmDisplay = \(self.tmDisplay)")
+        //            print("self.timerForOpenAgain = \(self.timerForOpenAgain)")
+        
+            if(self.viewAlert.alpha < 1){
+                
+                
+                if(((self.lastClosedSet == self.bannerSet && self.tmDisplay > self.timerForOpenAgain)) || (self.lastClosedSet != self.bannerSet)){
+                    
+//                    self.tmDisplay = 0
+//                    self.tmStop()
+                    
+                    bannerSet = bSet == 0 ? bannerSet : bSet
+                    
+                    viewBanner.reloadDataWithCompleteBlock({a in
+                        
+                        self.tmr.invalidate()
+                        self.tmDisplay = 0
+                        
+                        print("++++++++ เปิดต่อไป +++++++++")
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        
+                        self.viewBanner.setCurrentPage(0, animated: false)
+                        
+                        UIView.animateWithDuration(0.2, animations: {
+                            
+                            self.viewAlertBg.hidden = false
+                            self.viewAlertBg.alpha = 0.9
+                            
+                            self.viewAlert.hidden = false
+                            self.viewAlert.alpha = 1
+                            
+                            
+                            //print("sayHello xxxx!")
+                            
+                            }, completion:{_action in
+                                
+                                //print("sayHello zzzzzz!")
+                                self.lastClosedSet = bSet
+                                
+                        })
+                        
+                    })
+                    
+                }else{
+                    
+                    print("++++++++ รอเวลาเปิด +++++++++")
+                    
+                }
+               
+                
+            }else{
+                
+                
+                print("++++++++ ปิด +++++++++")
+                self.closeBanner(true)
+//                UIView.animateWithDuration(0.2, animations: {
+//                    
+//                    self.viewAlertBg.hidden = false
+//                    self.viewAlertBg.alpha = 0
+//                    
+//                    self.viewAlert.hidden = false
+//                    self.viewAlert.alpha = 0
+//                    
+//                    //print("sayHello xxxx!")
+//                    
+//                    }, completion:{_action in
+//                        
+//                        self.closeBanner(true)
+//                        //NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.sayHello), userInfo: nil, repeats: false)
+//                        
+//                })
+                
             }
-            
-            UIView.animateWithDuration(0.2, animations: {
-                
-                self.viewAlertBg.hidden = false
-                self.viewAlertBg.alpha = 0.9
-                
-                self.viewAlert.hidden = false
-                self.viewAlert.alpha = 1
-                
-                
-                //print("sayHello xxxx!")
-                
-                }, completion:{_action in
-                    
-                    //print("sayHello zzzzzz!")
-                    
-                    
-            })
-        })
         
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         
     }
     
     func closeBanner(andOpenDelay:Bool = false) {
-        UIView.animateWithDuration(0.2, animations: {
+        
+//        print("-------------------------")
+//        print("self.viewAlert.alpha = \(self.viewAlert.alpha)")
+//        print("self.lastClosedSet = \(self.lastClosedSet)")
+//        print("self.bannerSet = \(self.bannerSet)")
+//        print("self.tmDisplay = \(self.tmDisplay)")
+//        print("self.timerForOpenAgain = \(self.timerForOpenAgain)")
+        
+        tmr = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.tmTickTock), userInfo: nil, repeats: true)
+        //self.tmDisplay = 0
+        lastClosedSet = bannerSet
+        
+        UIView.animateWithDuration(0.5, animations: {
             
             self.viewAlertBg.hidden = false
             self.viewAlertBg.alpha = 0
@@ -213,7 +292,10 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
                 
                 //sayHello()
                 if(andOpenDelay){
-                    NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.sayHello), userInfo: nil, repeats: false)
+                    print("---------------------------------------------------------------------")
+                    NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.sayHello(_:)), userInfo: nil, repeats: false)
+                }else{
+                    print("---------------------------------------------------------------------")
                 }
         })
     }
@@ -305,7 +387,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         viewBanner.datasource = self;
         viewBanner.delegate = self;
         viewBanner.continuous = true;
-        viewBanner.autoPlayTimeInterval = 5;
+        viewBanner.autoPlayTimeInterval = 8;
         
         
         let alertBannerWidth = frmView.size.width - 20
@@ -350,35 +432,6 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     //---------------------------------
     
     func design() {
-        
-        
-//        let frmMainbackground = CGRectMake(0, 0, frmView.size.width, frmView.size.width)
-//        viewMainbackground.frame = frmMainbackground
-      
-        
-//        let titleBoxSize = frmView.size.width - 50
-//        let frmTitleBox = CGRectMake(25, 40, titleBoxSize, titleBoxSize)
-//        viewTitleBox.frame = frmTitleBox
-        
-        
-        
-        
-        
-        
-//        viewMainbackground.backgroundColor = UIColor.greenColor()
-//        viewTitleBox.backgroundColor = UIColor.blueColor()
-//        viewDescriptionBox.backgroundColor = UIColor.yellowColor()
-        
-        
-        
-        
-        
-        
-        
-        //------
-        
-        
-        
         
         imgBackground.image = UIImage(named: "bg")
         imgBackground.contentMode = .ScaleAspectFill

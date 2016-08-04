@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         return true
     }
     
+    
 //    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
 //        
 //        print("didEnterRegion")

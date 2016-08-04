@@ -57,17 +57,17 @@
 /* Begin PBXFileReference section */
 		2A16385F7A8DD10CC895597F /* Pods-TouchDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TouchDemoUITests/Pods-TouchDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		362305971D5095F300A4AC9E /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
-		369FAB531D504C820062AC88 /* Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		369FAB531D504C820062AC88 /* TouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369FAB561D504C820062AC88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		369FAB581D504C820062AC88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		369FAB5B1D504C820062AC88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		369FAB5D1D504C820062AC88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		369FAB601D504C820062AC88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		369FAB621D504C820062AC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		369FAB671D504C820062AC88 /* Tourist.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tourist.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		369FAB671D504C820062AC88 /* TouchDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		369FAB6B1D504C820062AC88 /* TouchDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchDemoTests.swift; sourceTree = "<group>"; };
 		369FAB6D1D504C820062AC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		369FAB721D504C820062AC88 /* Tourist.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tourist.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		369FAB721D504C820062AC88 /* TouchDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		369FAB761D504C820062AC88 /* TouchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchDemoUITests.swift; sourceTree = "<group>"; };
 		369FAB781D504C820062AC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		369FAB851D504D070062AC88 /* HeroIconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroIconManager.swift; path = EstimoteLib/HeroIconManager.swift; sourceTree = "<group>"; };
@@ -164,9 +164,9 @@
 		369FAB541D504C820062AC88 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				369FAB531D504C820062AC88 /* Tourist.app */,
-				369FAB671D504C820062AC88 /* Tourist.xctest */,
-				369FAB721D504C820062AC88 /* Tourist.xctest */,
+				369FAB531D504C820062AC88 /* TouchDemo.app */,
+				369FAB671D504C820062AC88 /* TouchDemo.xctest */,
+				369FAB721D504C820062AC88 /* TouchDemo.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		369FAB521D504C820062AC88 /* Tourist */ = {
+		369FAB521D504C820062AC88 /* TouchDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 369FAB7B1D504C820062AC88 /* Build configuration list for PBXNativeTarget "Tourist" */;
+			buildConfigurationList = 369FAB7B1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemo" */;
 			buildPhases = (
 				35E8C47F2D4576AB437CD4B3 /* [CP] Check Pods Manifest.lock */,
 				369FAB4F1D504C820062AC88 /* Sources */,
@@ -287,14 +287,14 @@
 			);
 			dependencies = (
 			);
-			name = Tourist;
+			name = TouchDemo;
 			productName = TouchDemo;
-			productReference = 369FAB531D504C820062AC88 /* Tourist.app */;
+			productReference = 369FAB531D504C820062AC88 /* TouchDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		369FAB661D504C820062AC88 /* TouristTests */ = {
+		369FAB661D504C820062AC88 /* TouchDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 369FAB7E1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouristTests" */;
+			buildConfigurationList = 369FAB7E1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemoTests" */;
 			buildPhases = (
 				315DE5EC8D92CE3A48585362 /* [CP] Check Pods Manifest.lock */,
 				369FAB631D504C820062AC88 /* Sources */,
@@ -308,14 +308,14 @@
 			dependencies = (
 				369FAB691D504C820062AC88 /* PBXTargetDependency */,
 			);
-			name = TouristTests;
+			name = TouchDemoTests;
 			productName = TouchDemoTests;
-			productReference = 369FAB671D504C820062AC88 /* Tourist.xctest */;
+			productReference = 369FAB671D504C820062AC88 /* TouchDemo.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		369FAB711D504C820062AC88 /* TouristUITests */ = {
+		369FAB711D504C820062AC88 /* TouchDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 369FAB811D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouristUITests" */;
+			buildConfigurationList = 369FAB811D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemoUITests" */;
 			buildPhases = (
 				E7C15AAF1ABDF667C50EDB55 /* [CP] Check Pods Manifest.lock */,
 				369FAB6E1D504C820062AC88 /* Sources */,
@@ -328,9 +328,9 @@
 			dependencies = (
 				369FAB741D504C820062AC88 /* PBXTargetDependency */,
 			);
-			name = TouristUITests;
+			name = TouchDemoUITests;
 			productName = TouchDemoUITests;
-			productReference = 369FAB721D504C820062AC88 /* Tourist.xctest */;
+			productReference = 369FAB721D504C820062AC88 /* TouchDemo.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -357,7 +357,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 369FAB4E1D504C820062AC88 /* Build configuration list for PBXProject "Tourist" */;
+			buildConfigurationList = 369FAB4E1D504C820062AC88 /* Build configuration list for PBXProject "TouchDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -370,9 +370,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				369FAB521D504C820062AC88 /* Tourist */,
-				369FAB661D504C820062AC88 /* TouristTests */,
-				369FAB711D504C820062AC88 /* TouristUITests */,
+				369FAB521D504C820062AC88 /* TouchDemo */,
+				369FAB661D504C820062AC88 /* TouchDemoTests */,
+				369FAB711D504C820062AC88 /* TouchDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -570,12 +570,12 @@
 /* Begin PBXTargetDependency section */
 		369FAB691D504C820062AC88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 369FAB521D504C820062AC88 /* Tourist */;
+			target = 369FAB521D504C820062AC88 /* TouchDemo */;
 			targetProxy = 369FAB681D504C820062AC88 /* PBXContainerItemProxy */;
 		};
 		369FAB741D504C820062AC88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 369FAB521D504C820062AC88 /* Tourist */;
+			target = 369FAB521D504C820062AC88 /* TouchDemo */;
 			targetProxy = 369FAB731D504C820062AC88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -698,7 +698,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.Touchtechnologies.TouchDemo;
-				PRODUCT_NAME = Tourist;
+				PRODUCT_NAME = TouchDemo;
 				SWIFT_OBJC_BRIDGING_HEADER = "TouchDemo/TouchDemo-Bridging-Header.h";
 			};
 			name = Debug;
@@ -714,7 +714,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.Touchtechnologies.TouchDemo;
-				PRODUCT_NAME = Tourist;
+				PRODUCT_NAME = TouchDemo;
 				SWIFT_OBJC_BRIDGING_HEADER = "TouchDemo/TouchDemo-Bridging-Header.h";
 			};
 			name = Release;
@@ -727,8 +727,8 @@
 				INFOPLIST_FILE = TouchDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemoTests;
-				PRODUCT_NAME = Tourist;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tourist.app/Tourist";
+				PRODUCT_NAME = TouchDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TouchDemo.app/TouchDemo";
 			};
 			name = Debug;
 		};
@@ -740,8 +740,8 @@
 				INFOPLIST_FILE = TouchDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemoTests;
-				PRODUCT_NAME = Tourist;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tourist.app/Tourist";
+				PRODUCT_NAME = TouchDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TouchDemo.app/TouchDemo";
 			};
 			name = Release;
 		};
@@ -752,7 +752,7 @@
 				INFOPLIST_FILE = TouchDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemoUITests;
-				PRODUCT_NAME = Tourist;
+				PRODUCT_NAME = TouchDemo;
 				TEST_TARGET_NAME = TouchDemo;
 			};
 			name = Debug;
@@ -764,7 +764,7 @@
 				INFOPLIST_FILE = TouchDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Touchtechnologies.TouchDemoUITests;
-				PRODUCT_NAME = Tourist;
+				PRODUCT_NAME = TouchDemo;
 				TEST_TARGET_NAME = TouchDemo;
 			};
 			name = Release;
@@ -772,7 +772,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		369FAB4E1D504C820062AC88 /* Build configuration list for PBXProject "Tourist" */ = {
+		369FAB4E1D504C820062AC88 /* Build configuration list for PBXProject "TouchDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				369FAB791D504C820062AC88 /* Debug */,
@@ -781,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		369FAB7B1D504C820062AC88 /* Build configuration list for PBXNativeTarget "Tourist" */ = {
+		369FAB7B1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				369FAB7C1D504C820062AC88 /* Debug */,
@@ -790,7 +790,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		369FAB7E1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouristTests" */ = {
+		369FAB7E1D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				369FAB7F1D504C820062AC88 /* Debug */,
@@ -799,7 +799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		369FAB811D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouristUITests" */ = {
+		369FAB811D504C820062AC88 /* Build configuration list for PBXNativeTarget "TouchDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				369FAB821D504C820062AC88 /* Debug */,
