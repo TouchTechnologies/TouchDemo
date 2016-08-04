@@ -13,6 +13,7 @@ target 'TouchDemo' do
   pod 'SnapKit', '~> 0.15.0'
 #  pod 'EAIntroView'
   pod 'KDCycleBannerView'
+  pod 'Pulsator'
   
   target 'TouchDemoTests' do
     inherit! :search_paths

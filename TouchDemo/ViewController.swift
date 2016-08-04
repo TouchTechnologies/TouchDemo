@@ -10,17 +10,18 @@ import UIKit
 import SnapKit
 import KDCycleBannerView
 import AudioToolbox
+import Pulsator
 
 class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycleBannerViewDataource, KDCycleBannerViewDelegate {
-
-//    @IBOutlet weak var label: UILabel!
-//    @IBOutlet weak var image: UIImageView!
-//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //    @IBOutlet weak var label: UILabel!
+    //    @IBOutlet weak var image: UIImageView!
+    //    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var alert = SweetAlert()
     var proximityContentManager: ProximityContentManager!
     
-    let timerForOpenAgain = 20
+    let timerForOpenAgain = 5
     
     var bannerIsShow = false
     var bannerSet = 0
@@ -32,38 +33,34 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear")
         super.viewWillAppear(animated)
-
+        
     }
     
     func alert1() {
         
-        print(" >>>>>>>>>>>>>>>> call func alert1() >>>>>>>>>>>>>>>> ")
         bannerSet = 1
-        sayHello(bannerSet)
+        sayHello()
         
     }
     
     func alert2() {
         
-        print(" >>>>>>>>>>>>>>>> call func alert2() >>>>>>>>>>>>>>>> ")
         bannerSet = 3
-        sayHello(bannerSet)
+        sayHello()
         
     }
     
     func alert3() {
         
-        print(" >>>>>>>>>>>>>>>> call func alert3() >>>>>>>>>>>>>>>> ")
         bannerSet = 2
-        sayHello(bannerSet)
+        sayHello()
         
     }
     
     func alert4() {
         
-        print(" >>>>>>>>>>>>>>>> call func alert4() >>>>>>>>>>>>>>>> ")
         bannerSet = 2
-        sayHello(bannerSet)
+        sayHello()
         
     }
     
@@ -71,21 +68,19 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        UIApplication.sharedApplication().statusBarStyle = .Default
+        //UIApplication.sharedApplication().statusBarStyle = .Default
         
         
-        
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(ViewController.alert1), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: #selector(ViewController.alert2), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(14.0, target: self, selector: #selector(ViewController.alert3), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(25.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.alert1), userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: #selector(ViewController.alert2), userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: #selector(ViewController.alert3), userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
+        //NSTimer.scheduledTimerWithTimeInterval(45.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
         
         
         frmView = self.view.frame
         design()
         initBanner()
-        
-//        self.activityIndicator.startAnimating()
         
         self.proximityContentManager = ProximityContentManager(
             beaconIDs: [
@@ -99,9 +94,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     }
     
     func proximityContentManager(proximityContentManager: ProximityContentManager, didUpdateContent content: AnyObject?) {
-//        self.activityIndicator?.stopAnimating()
-//        self.activityIndicator?.removeFromSuperview()
-        
+
         if let beaconDetails = content as? BeaconDetails {
             
             GlobalVariables.sharedManager.bannerIsShow = true
@@ -118,22 +111,12 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
                 break
                 
             }
-            sayHello(bannerSet)
+            sayHello()
             
         } else {
             
-//            var bName = ""
-//            if let c = content as? BeaconDetails {
-//                bName = c.beaconName
-//            }
-//            print("Close \(bName)")
+            //closeBanner() // ไม่ต้องปิดแล้ว จนกว่าผู้ใช้จะปิดเอง
             
-//            GlobalVariables.sharedManager.bannerIsShow = false
-//            GlobalVariables.sharedManager.bannerSet = 0
-//            bannerIsShow = false
-//            bannerSet = 0
-            
-            //closeBanner()
         }
     }
     
@@ -143,7 +126,6 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -155,16 +137,12 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     func tmTickTock() {
         
         self.tmDisplay = self.tmDisplay + 1
-//        print("tmTickTock")
-//        print("self.tmDisplay = \(self.tmDisplay)")
-//        print("-------------------------------------")
         
     }
     
     func tmStop() {
         
         self.tmr.invalidate()
-        //self.tmr = nil
         
     }
     
@@ -172,107 +150,63 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         super.viewWillDisappear(true)
         tmStop()
     }
-
-    func sayHello(bSet: Int = 0) {
+    
+    func sayHello() {
         
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-//            print("++++++++++++++++++++++")
-//            print("self.viewAlert.alpha = \(self.viewAlert.alpha)")
-            print("self.lastClosedSet = \(self.lastClosedSet)")
-            print("self.bannerSet = \(self.bannerSet)")
-            print("self.tmDisplay = \(self.tmDisplay)")
-        //            print("self.timerForOpenAgain = \(self.timerForOpenAgain)")
-        
-            if(self.viewAlert.alpha < 1){
+        if(self.viewAlert.alpha < 1){
+            
+            if(((self.lastClosedSet == self.bannerSet && self.tmDisplay > self.timerForOpenAgain)) || (self.lastClosedSet != self.bannerSet)){
                 
-                
-                if(((self.lastClosedSet == self.bannerSet && self.tmDisplay > self.timerForOpenAgain)) || (self.lastClosedSet != self.bannerSet)){
+                viewBanner.reloadDataWithCompleteBlock({a in
                     
-//                    self.tmDisplay = 0
-//                    self.tmStop()
+                    self.tmr.invalidate()
+                    self.tmDisplay = 0
+                    self.lastClosedSet = self.bannerSet
                     
-                    bannerSet = bSet == 0 ? bannerSet : bSet
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     
-                    viewBanner.reloadDataWithCompleteBlock({a in
+                    self.viewBanner.setCurrentPage(0, animated: false)
+                    
+                    UIView.animateWithDuration(0.2, animations: {
                         
-                        self.tmr.invalidate()
-                        self.tmDisplay = 0
+                        self.viewAlertBg.hidden = false
+                        self.viewAlertBg.alpha = 0.9
                         
-                        print("++++++++ เปิดต่อไป +++++++++")
-                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        self.viewAlert.hidden = false
+                        self.viewAlert.alpha = 1
                         
-                        self.viewBanner.setCurrentPage(0, animated: false)
                         
-                        UIView.animateWithDuration(0.2, animations: {
-                            
-                            self.viewAlertBg.hidden = false
-                            self.viewAlertBg.alpha = 0.9
-                            
-                            self.viewAlert.hidden = false
-                            self.viewAlert.alpha = 1
-                            
-                            
-                            //print("sayHello xxxx!")
-                            
-                            }, completion:{_action in
-                                
-                                //print("sayHello zzzzzz!")
-                                self.lastClosedSet = bSet
-                                
-                        })
+                        //print("sayHello xxxx!")
                         
+                        }, completion:{_action in
+                            
+                            self.pulsator.stop()
+                            //print("sayHello zzzzzz!")
+                            
                     })
                     
-                }else{
-                    
-                    print("++++++++ รอเวลาเปิด +++++++++")
-                    
-                }
-               
+                })
                 
             }else{
                 
-                
-                print("++++++++ ปิด +++++++++")
-                self.closeBanner(true)
-//                UIView.animateWithDuration(0.2, animations: {
-//                    
-//                    self.viewAlertBg.hidden = false
-//                    self.viewAlertBg.alpha = 0
-//                    
-//                    self.viewAlert.hidden = false
-//                    self.viewAlert.alpha = 0
-//                    
-//                    //print("sayHello xxxx!")
-//                    
-//                    }, completion:{_action in
-//                        
-//                        self.closeBanner(true)
-//                        //NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.sayHello), userInfo: nil, repeats: false)
-//                        
-//                })
+                print("++++++++ รอเวลาเปิด +++++++++")
                 
             }
-        
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            
+        }else{
+            
+            if(self.lastClosedSet != self.bannerSet){
+                self.closeBanner(true)
+            }
+            
+        }
         
     }
     
     func closeBanner(andOpenDelay:Bool = false) {
         
-//        print("-------------------------")
-//        print("self.viewAlert.alpha = \(self.viewAlert.alpha)")
-//        print("self.lastClosedSet = \(self.lastClosedSet)")
-//        print("self.bannerSet = \(self.bannerSet)")
-//        print("self.tmDisplay = \(self.tmDisplay)")
-//        print("self.timerForOpenAgain = \(self.timerForOpenAgain)")
-        
         tmr = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.tmTickTock), userInfo: nil, repeats: true)
-        //self.tmDisplay = 0
-        lastClosedSet = bannerSet
-        
+        pulsator.start()
         UIView.animateWithDuration(0.5, animations: {
             
             self.viewAlertBg.hidden = false
@@ -281,29 +215,21 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
             self.viewAlert.hidden = false
             self.viewAlert.alpha = 0
             
-            
-            //print("sayHello xxxx!")
-            
             }, completion:{_action in
                 
-                //print("sayHello zzzzzz!")
                 self.viewAlert.hidden = true
                 self.viewAlertBg.hidden = true
                 
-                //sayHello()
                 if(andOpenDelay){
-                    print("---------------------------------------------------------------------")
-                    NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.sayHello(_:)), userInfo: nil, repeats: false)
-                }else{
-                    print("---------------------------------------------------------------------")
+                    NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.sayHello), userInfo: nil, repeats: false)
                 }
         })
     }
     
     func numberOfKDCycleBannerView(bannerView: KDCycleBannerView!) -> [AnyObject]! {
         
-//        bannerIsShow = false
-//        bannerSet = 0
+        //        bannerIsShow = false
+        //        bannerSet = 0
         if (bannerSet == 1){
             return [
                 UIImage(named: "ib_L_p1")!,
@@ -360,8 +286,8 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         btnCloseBanner.imageView?.contentMode = .Center
         btnCloseBanner.setImage(UIImage(named: "close"), forState: .Normal)
         
-//        let alertBoxWidth = frmView.size.width
-//        let alertBoxHeight = frmView.size.height
+        //        let alertBoxWidth = frmView.size.width
+        //        let alertBoxHeight = frmView.size.height
         viewAlert.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(self.view)
             make.center.equalTo(self.view)
@@ -401,15 +327,12 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     var frmView = CGRect()
     //----------  View Alert Set  -----------
-    
     lazy var viewAlertBg = UIView()
     lazy var viewAlert = UIView()
     lazy var btnCloseBanner = UIButton()
     let viewBanner = KDCycleBannerView()
     lazy var imgCloseButton = UIImageView()
-    
     //---------------------------------
-
     
     //----------  View Set  -----------
     lazy var viewMainbackground = UIView()
@@ -431,6 +354,17 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     lazy var  lblBottom = UILabel()
     //---------------------------------
     
+//    //----------  View Loading...  -----------
+//    lazy var viewLoading1 = UIView()
+//    lazy var viewLoading2 = UIView()
+//    lazy var viewLoading3 = UIView()
+//    lazy var viewLoading4 = UIView()
+//    //----------------------------------------
+    
+    let pulsator = Pulsator()
+    let kMaxRadius: CGFloat = 200
+    let kMaxDuration: NSTimeInterval = 10
+    
     func design() {
         
         imgBackground.image = UIImage(named: "bg")
@@ -447,13 +381,15 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         imgDescriptionText.image = UIImage(named: "smart_logo")
         imgDescriptionText.contentMode = .ScaleAspectFit
         
-//        lblBottom.backgroundColor = UIColor.blueColor()
-//        lblBottom.alpha = 0.5
+        //lblBottom.backgroundColor = UIColor.blueColor()
+        //lblBottom.alpha = 0.5
         lblBottom.text = "Use your phone to locate any iBeacons around you"
         lblBottom.textAlignment = .Center
         lblBottom.font.fontWithSize(14)
         lblBottom.adjustsFontSizeToFitWidth = true
         lblBottom.minimumScaleFactor = 0.2
+        
+        setViewIsLoading()
         
         self.viewMainbackground.addSubview(imgBackground)
         self.viewTitleBox.addSubview(imgCircle)
@@ -465,11 +401,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         self.view.addSubview(viewDescriptionBox)
         self.view.addSubview(lblBottom)
         
-        
-        
+//        //self.viewTitleBox.backgroundColor = UIColor.blueColor()
+//        self.viewTitleBox.addSubview(viewLoading1)
+//        self.viewTitleBox.addSubview(viewLoading2)
+//        self.viewTitleBox.addSubview(viewLoading3)
+//        self.viewTitleBox.addSubview(viewLoading4)
         
         //-- -- -- -- -- -- -- -- -- -- --
-        
         viewMainbackground.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(0)
             make.left.equalTo(0)
@@ -479,7 +417,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         let titleBoxSize = frmView.size.width - 60
         viewTitleBox.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(74)
+            make.top.equalTo(60)
             make.size.equalTo(CGSizeMake(titleBoxSize, titleBoxSize))
             make.centerX.equalTo(viewMainbackground)
         }
@@ -487,7 +425,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         let DesBoxSize = frmView.size.width - 120
         viewDescriptionBox.snp_makeConstraints { (make) -> Void in
             make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
-            make.top.equalTo(viewTitleBox).offset(titleBoxSize - 90)
+            make.top.equalTo(viewTitleBox).offset(titleBoxSize - 120)
             make.centerX.equalTo(viewMainbackground)
         }
         
@@ -521,6 +459,88 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
             make.centerX.equalTo(self.view)
             make.bottom.equalTo(0)
         }
+        
+        // ===== Loading... =====
+        
+        
+        
+        //self.imgCircle.alpha = 0
+        
+        //self.viewLoading1 = self.setViewLoadingStart(self.viewLoading1)
+        
+//        let sizeViewLoadingStart = viewTitleBox.frame.size.width - 140
+//        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
+//        
+//        viewLoading1.frame = frmLoadingStart
+//        
+//        //self.viewLoading1.backgroundColor = UIColor.greenColor()
+//        self.viewLoading1.layer.cornerRadius = self.viewLoading1.frame.size.width / 2
+//        self.viewLoading1.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.viewLoading1.layer.borderWidth = 5
+//        
+//        self.viewLoading2.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.viewLoading2.layer.borderWidth = 5
+//        
+//        self.viewLoading3.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.viewLoading4.layer.borderWidth = 5
+//        
+//        self.viewLoading4.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.viewLoading4.layer.borderWidth = 5
+        
+//        let sizeViewLoading = self.viewTitleBox.frame.size.width
+        //        pulsator.translatesAutoresizingMaskIntoConstraints = true
+        //pulsator.frame = CGRectMake(0, 0, sizeViewLoading, sizeViewLoading)
+        
+        
+        
+        //setViewIsLoading()
     }
+    
+    
+    
+//    func setViewLoadingStart(view:UIView) -> UIView {
+//        
+//        let sizeViewLoadingStart = self.viewTitleBox.frame.size.width - 140
+////        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
+////        
+////        view.frame = frmLoadingStart
+//        
+//        //self.viewLoading1.backgroundColor = UIColor.greenColor()
+//        view.layer.cornerRadius = view.frame.size.width / 2
+//        view.layer.borderColor = UIColor.whiteColor().CGColor
+//        view.layer.borderWidth = 5
+//        
+//        view.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(sizeViewLoadingStart, sizeViewLoadingStart))
+//            make.center.equalTo(viewTitleBox)
+//        }
+//        
+//        return view
+//    }
+//    
+    func setViewIsLoading() {
+        
+        let viewForpulsator = UIView()
+        viewTitleBox.addSubview(viewForpulsator)
+        viewForpulsator.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(CGSizeMake(1, 1))
+            make.center.equalTo(viewTitleBox)
+        }
+        
+        
+        viewForpulsator.layer.addSublayer(pulsator)
+        
+        
+        //pulsator.backgroundColor = UIColor.whiteColor().CGColor
+        pulsator.backgroundColor = UIColor(red: 193/255, green: 193/255, blue: 193/255, alpha: 1.0).CGColor
+        pulsator.radius = 160
+        pulsator.animationDuration = 6
+        pulsator.numPulse = 6
+        pulsator.contentsCenter = self.viewTitleBox.frame
+        pulsator.start()
+        
+    }
+    
+    
 }
 
