@@ -12,7 +12,7 @@ import KDCycleBannerView
 import AudioToolbox
 import Pulsator
 
-class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycleBannerViewDataource, KDCycleBannerViewDelegate {
+class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycleBannerViewDataource, KDCycleBannerViewDelegate, UIGestureRecognizerDelegate {
     
     //    @IBOutlet weak var label: UILabel!
     //    @IBOutlet weak var image: UIImageView!
@@ -64,19 +64,43 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
     }
     
+    func setTestAction(sender: UIGestureRecognizer) {
+        
+        NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: #selector(ViewController.alert1), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(16.0, target: self, selector: #selector(ViewController.alert2), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(26.0, target: self, selector: #selector(ViewController.alert3), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(36.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(46.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
+        
+        print("xxxxxxxx")
+        
+        
+        let alertController = UIAlertController(title: "Start Test Action", message: "Waitng for alert", preferredStyle:UIAlertControllerStyle.Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in
+            print("you have pressed OK button");
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true, completion:{ () -> Void in
+            //your code here
+        })
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //UIApplication.sharedApplication().statusBarStyle = .Default
         
+        //longPress
         
-        //NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.alert1), userInfo: nil, repeats: false)
-        //NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: #selector(ViewController.alert2), userInfo: nil, repeats: false)
-        //NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: #selector(ViewController.alert3), userInfo: nil, repeats: false)
-        //NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
-        //NSTimer.scheduledTimerWithTimeInterval(45.0, target: self, selector: #selector(ViewController.alert4), userInfo: nil, repeats: false)
-        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.setTestAction(_:)))
+        longPress.delaysTouchesBegan = true
+        longPress.delegate = self
+        longPress.minimumPressDuration = 10
+        self.view.addGestureRecognizer(longPress)
         
         frmView = self.view.frame
         design()
@@ -288,24 +312,35 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         //        let alertBoxWidth = frmView.size.width
         //        let alertBoxHeight = frmView.size.height
-        viewAlert.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(self.view)
-            make.center.equalTo(self.view)
-            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
-        }
+//        viewAlert.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(self.view)
+//            make.center.equalTo(self.view)
+//            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
+//        }
+        viewAlert.frame = frmView
+        viewAlert.center.x = frmView.size.width / 2
+        viewAlert.center.y = frmView.size.height / 2
         
-        viewAlertBg.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(viewAlert)
-            make.center.equalTo(viewAlert)
-        }
+//        viewAlertBg.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(viewAlert)
+//            make.center.equalTo(viewAlert)
+//        }
+        viewAlertBg.frame = frmView
+        viewAlertBg.center.x = frmView.size.width / 2
+        viewAlertBg.center.y = frmView.size.height / 2
         
-        btnCloseBanner.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(40,40))
-            make.top.equalTo(30)
-            make.right.equalTo(btnCloseBanner.frame.size.width - 10)
-            //make.right.equalTo(viewAlert).offset(-50)
-            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
-        }
+        
+        
+//        btnCloseBanner.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(40,40))
+//            make.top.equalTo(30)
+//            make.right.equalTo(btnCloseBanner.frame.size.width - 10)
+//            //make.right.equalTo(viewAlert).offset(-50)
+//            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
+//        }
+        btnCloseBanner.frame.size = CGSizeMake(40, 40)
+        btnCloseBanner.frame.origin.x = btnCloseBanner.frame.size.width - 10
+        btnCloseBanner.frame.origin.y = 30
         //-- -- -- -- -- -- -- -- -- -- --
         
         //viewBanner = KDCycleBannerView()
@@ -318,11 +353,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         let alertBannerWidth = frmView.size.width - 20
         let alertBannerHeight = frmView.size.height - 20
-        viewBanner.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(alertBannerWidth, alertBannerHeight))
-            make.center.equalTo(viewAlert)
-        }
-        
+//        viewBanner.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(alertBannerWidth, alertBannerHeight))
+//            make.center.equalTo(viewAlert)
+//        }
+        viewBanner.frame.size = CGSizeMake(alertBannerWidth, alertBannerHeight)
+        viewBanner.center.x = viewAlert.frame.size.width / 2
+        viewBanner.center.y = viewAlert.frame.size.height / 2
     }
     
     var frmView = CGRect()
@@ -401,64 +438,105 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         self.view.addSubview(viewDescriptionBox)
         self.view.addSubview(lblBottom)
         
-//        //self.viewTitleBox.backgroundColor = UIColor.blueColor()
+        //self.viewTitleBox.backgroundColor = UIColor.blueColor()
 //        self.viewTitleBox.addSubview(viewLoading1)
 //        self.viewTitleBox.addSubview(viewLoading2)
 //        self.viewTitleBox.addSubview(viewLoading3)
 //        self.viewTitleBox.addSubview(viewLoading4)
         
+        
         //-- -- -- -- -- -- -- -- -- -- --
-        viewMainbackground.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(0)
-            make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.right.equalTo(0)
-        }
+//        viewMainbackground.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(0)
+//            make.left.equalTo(0)
+//            make.bottom.equalTo(0)
+//            make.right.equalTo(0)
+//        }
+        viewMainbackground.frame = self.view.frame
+        viewMainbackground.frame.origin.x = 0
+        viewMainbackground.frame.origin.y = 0
+        
         
         let titleBoxSize = frmView.size.width - 60
-        viewTitleBox.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(60)
-            make.size.equalTo(CGSizeMake(titleBoxSize, titleBoxSize))
-            make.centerX.equalTo(viewMainbackground)
-        }
+//        viewTitleBox.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(60)
+//            make.size.equalTo(CGSizeMake(titleBoxSize, titleBoxSize))
+//            make.centerX.equalTo(viewMainbackground)
+//        }
+        viewTitleBox.frame.size = CGSizeMake(titleBoxSize, titleBoxSize)
+        viewTitleBox.center.x = viewMainbackground.frame.size.width / 2
+        viewTitleBox.frame.origin.y = 60
+        
+        
         
         let DesBoxSize = frmView.size.width - 120
-        viewDescriptionBox.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
-            make.top.equalTo(viewTitleBox).offset(titleBoxSize - 120)
-            make.centerX.equalTo(viewMainbackground)
-        }
+//        viewDescriptionBox.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
+//            make.top.equalTo(viewTitleBox).offset(titleBoxSize - 120)
+//            make.centerX.equalTo(viewMainbackground)
+//        }
+        viewDescriptionBox.frame.size = CGSizeMake(DesBoxSize, DesBoxSize)
+        viewDescriptionBox.center.x = viewMainbackground.frame.size.width / 2
+        viewDescriptionBox.center.y = viewTitleBox.frame.size.height - titleBoxSize - 120
+        
+        
+        
         
         //------
-        imgBackground.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(0)
-            make.left.equalTo(0)
-            make.bottom.equalTo(0)
-            make.right.equalTo(0)
-        }
+//        imgBackground.snp_makeConstraints { (make) -> Void in
+//            make.top.equalTo(0)
+//            make.left.equalTo(0)
+//            make.bottom.equalTo(0)
+//            make.right.equalTo(0)
+//        }
+        imgBackground.frame.size = self.viewMainbackground.frame.size
+        imgBackground.center.x = 0
+        imgBackground.center.y = 0
+        
+        
         
         let imgTitleBoxSize = frmView.size.width - 80
-        imgCircle.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(imgTitleBoxSize, imgTitleBoxSize))
-            make.center.equalTo(viewTitleBox)
-        }
+//        imgCircle.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(imgTitleBoxSize, imgTitleBoxSize))
+//            make.center.equalTo(viewTitleBox)
+//        }
+        imgCircle.frame.size = CGSizeMake(imgTitleBoxSize, imgTitleBoxSize)
+        imgCircle.center.x = viewTitleBox.frame.size.width / 2
+        imgCircle.center.y = viewTitleBox.frame.size.height / 2
+        
+        
         
         let imgTitleTextSize = frmView.size.width - 50
-        imgTitleText.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(imgTitleTextSize, imgTitleTextSize))
-            make.center.equalTo(viewTitleBox)
-        }
+//        imgTitleText.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(imgTitleTextSize, imgTitleTextSize))
+//            make.center.equalTo(viewTitleBox)
+//        }
+        imgTitleText.frame.size = CGSizeMake(imgTitleTextSize, imgTitleTextSize)
+        imgTitleText.center.x = viewTitleBox.frame.size.width / 2
+        imgTitleText.center.y = viewTitleBox.frame.size.height / 2
         
-        imgDescriptionText.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
-            make.center.equalTo(viewDescriptionBox)
-        }
         
-        lblBottom.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(self.view.frame.size.width - 20, 40))
-            make.centerX.equalTo(self.view)
-            make.bottom.equalTo(0)
-        }
+        
+        
+//        imgDescriptionText.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
+//            make.center.equalTo(viewDescriptionBox)
+//        }
+        imgDescriptionText.frame.size = CGSizeMake(DesBoxSize, DesBoxSize)
+        imgDescriptionText.center.x = viewDescriptionBox.frame.size.width / 2
+        imgDescriptionText.center.y = viewDescriptionBox.frame.size.height / 2
+        
+        
+        
+        
+//        lblBottom.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(self.view.frame.size.width - 20, 40))
+//            make.centerX.equalTo(self.view)
+//            make.bottom.equalTo(0)
+//        }
+        lblBottom.frame.size = CGSizeMake(self.view.frame.size.width - 20, 40)
+        lblBottom.center.x = self.view.frame.size.width / 2
+        lblBottom.frame.origin.y = self.view.frame.size.height - lblBottom.frame.size.height
         
         // ===== Loading... =====
         
@@ -522,10 +600,16 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         let viewForpulsator = UIView()
         viewTitleBox.addSubview(viewForpulsator)
-        viewForpulsator.snp_makeConstraints { (make) -> Void in
-            make.size.equalTo(CGSizeMake(1, 1))
-            make.center.equalTo(viewTitleBox)
-        }
+//        viewForpulsator.snp_makeConstraints { (make) -> Void in
+//            make.size.equalTo(CGSizeMake(1, 1))
+//            make.center.equalTo(viewTitleBox)
+//        }
+        viewTitleBox.backgroundColor = UIColor.greenColor()
+        viewTitleBox.alpha = 0.7
+        viewForpulsator.frame.size = CGSizeMake(1, 1)
+        viewForpulsator.frame.origin.x = viewTitleBox.frame.size.width / 2
+        viewForpulsator.frame.origin.y = viewTitleBox.frame.size.height / 2
+        viewForpulsator.backgroundColor = UIColor.redColor()
         
         
         viewForpulsator.layer.addSublayer(pulsator)

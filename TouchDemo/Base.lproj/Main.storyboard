@@ -1,27 +1,186 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QIq-k3-jLK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="QIq-k3-jLK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!-- หน้าเดิม-->
         <scene sceneID="4Eh-PL-8yh">
             <objects>
-                <viewController id="QIq-k3-jLK" customClass="ViewController" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NTU-CH-B2i"/>
-                        <viewControllerLayoutGuide type="bottom" id="XJj-tG-zSy"/>
-                    </layoutGuides>
+                <viewController title=" หน้าเดิม" id="QIq-k3-jLK" customClass="ViewController" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7GD-Li-UGE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENZ-sS-CET" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="458"/>
+            <point key="canvasLocation" x="265.60000000000002" y="433.57333333333332"/>
+        </scene>
+        <!--Dashbord-->
+        <scene sceneID="KYO-jI-lf5">
+            <objects>
+                <viewController storyboardIdentifier="DashboardVC" title="Dashbord" id="eCc-Kf-8qn" customClass="DashboardVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kfr-b5-FbM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.60067189239999996" green="0.96279952130000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tourist" id="a67-Lg-MUx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHk-mw-9Nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="2006"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6vz-YF-hyZ">
+            <objects>
+                <viewController id="R1M-hl-Gp1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wR4-5u-YUu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YOv-zh-JaZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgP-dh-Rtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="2665"/>
+        </scene>
+        <!--Main Tab Bar-->
+        <scene sceneID="mPi-pu-hFn">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QbU-Vc-zOb" customClass="mainTabBar" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="drh-po-rWB">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.051320949970000002" blue="0.060466096990000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90369021736340138" green="0.968290523994912" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MB7-UL-OD3" kind="relationship" relationship="viewControllers" id="MyG-WM-ETF"/>
+                        <segue destination="j23-QA-bRd" kind="relationship" relationship="viewControllers" id="hyH-2X-x1l"/>
+                        <segue destination="Kqa-Uo-66R" kind="relationship" relationship="viewControllers" id="9VR-w3-Yvj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKV-HD-FY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="1149"/>
+        </scene>
+        <!--Phuket-->
+        <scene sceneID="cU4-xR-E0C">
+            <objects>
+                <viewController storyboardIdentifier="PhuketVC" title="Phuket" id="qny-Xc-CP6" customClass="PhuketVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ptc-qb-v0j">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="R4D-DK-8yk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qny-Xc-CP6" id="XRP-XO-D5i"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" title="Phuket" id="Diy-Do-K4C"/>
+                    <connections>
+                        <outlet property="webview" destination="R4D-DK-8yk" id="huM-AN-eiq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NBm-jQ-RIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1259" y="1902"/>
+        </scene>
+        <!--Coupon-->
+        <scene sceneID="ayd-MM-euy">
+            <objects>
+                <viewController storyboardIdentifier="CouponVC" title="Coupon" id="Tpc-sd-6LC" customClass="CouponVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HRQ-YU-XXq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="YcO-G5-I57">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Tpc-sd-6LC" id="LMq-EA-bhq"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" title="Coupon" id="tHW-g2-cV2"/>
+                    <connections>
+                        <outlet property="webview" destination="YcO-G5-I57" id="A1h-IT-uYw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsP-ka-uiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352" y="1766"/>
+        </scene>
+        <!--Dashbord-->
+        <scene sceneID="O52-4y-iQw">
+            <objects>
+                <navigationController storyboardIdentifier="nvDashboard" automaticallyAdjustsScrollViewInsets="NO" id="MB7-UL-OD3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Dashbord" id="Nrq-SY-Yex"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="13y-3w-IjG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eCc-Kf-8qn" kind="relationship" relationship="rootViewController" id="oo8-2P-New"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLh-9g-f2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="2006"/>
+        </scene>
+        <!--Phuket-->
+        <scene sceneID="eWw-Pi-Fra">
+            <objects>
+                <navigationController storyboardIdentifier="nvPhuket" automaticallyAdjustsScrollViewInsets="NO" id="j23-QA-bRd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Phuket" id="UFS-tM-4kY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="f5A-kH-WFu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qny-Xc-CP6" kind="relationship" relationship="rootViewController" id="lDz-40-btJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sxi-2s-oap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="1902"/>
+        </scene>
+        <!--Coupon-->
+        <scene sceneID="8AO-Ww-Q4T">
+            <objects>
+                <navigationController storyboardIdentifier="nvCoupon" automaticallyAdjustsScrollViewInsets="NO" id="Kqa-Uo-66R" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="3" title="Coupon" id="DwL-o2-45k"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zt0-FA-dQN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tpc-sd-6LC" kind="relationship" relationship="rootViewController" id="1fk-Zf-8IO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4u-ZX-5Rg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="1766"/>
         </scene>
     </scenes>
 </document>

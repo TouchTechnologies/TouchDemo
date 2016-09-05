@@ -12,5 +12,6 @@
 #import <EstimoteSDK/ESTRequestBeaconDetails.h>
 
 #import <KDCycleBannerView/KDCycleBannerView.h>
+//#import <LCTabBarController/LCTabBarController.h>
 
 #endif /* TouchDemo_Bridging_Header_h */

@@ -1,5 +1,11 @@
 PODS:
+  - Alamofire (3.4.1)
+  - Crashlytics (3.7.2):
+    - Fabric (~> 1.6.3)
   - EstimoteSDK (4.7.2)
+  - Fabric (1.6.7)
+  - FontAwesome.swift (0.8.0)
+  - HanekeSwift (0.10.1)
   - KDCycleBannerView (1.1.1):
     - SDWebImage
   - Pulsator (0.1.1)
@@ -9,14 +15,25 @@ PODS:
   - SDWebImage/Core (3.8.1)
   - SnapKit (0.15.0)
   - Spring (1.0.3)
+  - SVProgressHUD (2.0.3)
+  - SwiftCharts (0.4)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - Alamofire
+  - Crashlytics
   - EstimoteSDK (= 4.7.2)
+  - Fabric
+  - FontAwesome.swift
+  - HanekeSwift
   - KDCycleBannerView
   - Pulsator
   - SCLAlertView
   - SnapKit (~> 0.15.0)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - SVProgressHUD
+  - SwiftCharts
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   Spring:
@@ -29,14 +46,22 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   EstimoteSDK: d57900b6b6f3a205cba0a17420e658eded62b105
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   KDCycleBannerView: 6dbac2cda6b1a6f4e27b65d66249ecd966403b8b
   Pulsator: 9486579ab8eeb0585aedefdc2c688ab589497d9a
   SCLAlertView: d7c6a48c7d340e60206d4ed0e8ebcbff3b9d2a44
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftCharts: 84b43d9d70b791459ff5f50ae5a6704326de309d
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 916ce56d1de6e865523a7212aa8ae7b40d2a338f
+PODFILE CHECKSUM: 257290ffca7aaec117bd8629fe2ae00bc7feb524
 
 COCOAPODS: 1.0.1

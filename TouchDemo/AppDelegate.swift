@@ -56,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
 //        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(AppDelegate.setFakeValue2), userInfo: nil, repeats: false)
         
         // NOTE: "exit" event has a built-in delay of 30 seconds, to make sure that the user has really exited the beacon's range. The delay is imposed by iOS and is non-adjustable.
-        
-        return true
+       
+                return true
     }
     
     

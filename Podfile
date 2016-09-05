@@ -14,6 +14,22 @@ target 'TouchDemo' do
 #  pod 'EAIntroView'
   pod 'KDCycleBannerView'
   pod 'Pulsator'
+  pod 'SwiftCharts'
+  pod 'FontAwesome.swift'
+  pod 'SVProgressHUD'
+  #pod 'LCTabBarController'
+  
+  
+  
+  
+  pod 'Alamofire'
+  pod 'HanekeSwift'
+  
+  pod 'Fabric'
+  pod 'Crashlytics'
+  
+  pod 'SwiftyJSON'
+
   
   target 'TouchDemoTests' do
     inherit! :search_paths
