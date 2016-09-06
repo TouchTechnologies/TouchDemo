@@ -99,7 +99,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.setTestAction(_:)))
         longPress.delaysTouchesBegan = true
         longPress.delegate = self
-        longPress.minimumPressDuration = 10
+        longPress.minimumPressDuration = 5
         self.view.addGestureRecognizer(longPress)
         
         frmView = self.view.frame
@@ -118,7 +118,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     }
     
     func proximityContentManager(proximityContentManager: ProximityContentManager, didUpdateContent content: AnyObject?) {
-
+        
         if let beaconDetails = content as? BeaconDetails {
             
             GlobalVariables.sharedManager.bannerIsShow = true
@@ -308,39 +308,32 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         btnCloseBanner.addTarget(self, action: #selector(ViewController.closeBanner), forControlEvents: .TouchUpInside)
         
         btnCloseBanner.imageView?.contentMode = .Center
-        btnCloseBanner.setImage(UIImage(named: "close"), forState: .Normal)
+        btnCloseBanner.setImage(UIImage(named: "btn_close"), forState: .Normal)
         
         //        let alertBoxWidth = frmView.size.width
         //        let alertBoxHeight = frmView.size.height
-//        viewAlert.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(self.view)
-//            make.center.equalTo(self.view)
-//            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
-//        }
-        viewAlert.frame = frmView
-        viewAlert.center.x = frmView.size.width / 2
-        viewAlert.center.y = frmView.size.height / 2
+        viewAlert.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(self.view)
+            make.center.equalTo(self.view)
+            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
+        }
         
-//        viewAlertBg.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(viewAlert)
-//            make.center.equalTo(viewAlert)
-//        }
-        viewAlertBg.frame = frmView
-        viewAlertBg.center.x = frmView.size.width / 2
-        viewAlertBg.center.y = frmView.size.height / 2
+        viewAlertBg.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(viewAlert)
+            make.center.equalTo(viewAlert)
+        }
         
-        
-        
-//        btnCloseBanner.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(40,40))
-//            make.top.equalTo(30)
-//            make.right.equalTo(btnCloseBanner.frame.size.width - 10)
-//            //make.right.equalTo(viewAlert).offset(-50)
-//            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
-//        }
-        btnCloseBanner.frame.size = CGSizeMake(40, 40)
-        btnCloseBanner.frame.origin.x = btnCloseBanner.frame.size.width - 10
-        btnCloseBanner.frame.origin.y = 30
+        btnCloseBanner.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(CGSizeMake(40,40))
+            make.top.equalTo(30)
+            make.right.equalTo(btnCloseBanner.frame.size.width - 10)
+            //make.right.equalTo(viewAlert).offset(-50)
+            //make.center.equalTo(self.frmView.size).offset(CGPointMake(0, -100))
+        }
+        btnCloseBanner.clipsToBounds = true
+        btnCloseBanner.layer.cornerRadius = 20
+        btnCloseBanner.backgroundColor = UIColor.whiteColor()
+        //btnCloseBanner.alpha = 0.6
         //-- -- -- -- -- -- -- -- -- -- --
         
         //viewBanner = KDCycleBannerView()
@@ -353,13 +346,11 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         let alertBannerWidth = frmView.size.width - 20
         let alertBannerHeight = frmView.size.height - 20
-//        viewBanner.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(alertBannerWidth, alertBannerHeight))
-//            make.center.equalTo(viewAlert)
-//        }
-        viewBanner.frame.size = CGSizeMake(alertBannerWidth, alertBannerHeight)
-        viewBanner.center.x = viewAlert.frame.size.width / 2
-        viewBanner.center.y = viewAlert.frame.size.height / 2
+        viewBanner.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(CGSizeMake(alertBannerWidth, alertBannerHeight))
+            make.center.equalTo(viewAlert)
+        }
+        
     }
     
     var frmView = CGRect()
@@ -391,12 +382,12 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     lazy var  lblBottom = UILabel()
     //---------------------------------
     
-//    //----------  View Loading...  -----------
-//    lazy var viewLoading1 = UIView()
-//    lazy var viewLoading2 = UIView()
-//    lazy var viewLoading3 = UIView()
-//    lazy var viewLoading4 = UIView()
-//    //----------------------------------------
+    //    //----------  View Loading...  -----------
+    //    lazy var viewLoading1 = UIView()
+    //    lazy var viewLoading2 = UIView()
+    //    lazy var viewLoading3 = UIView()
+    //    lazy var viewLoading4 = UIView()
+    //    //----------------------------------------
     
     let pulsator = Pulsator()
     let kMaxRadius: CGFloat = 200
@@ -404,8 +395,9 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     func design() {
         
-        imgBackground.image = UIImage(named: "bg")
+        imgBackground.image = UIImage(named: Env.iPad ? "bg_ipad" : "bg")
         imgBackground.contentMode = .ScaleAspectFill
+        //imgBackground.contentMode = .Bottom
         
         imgCircle.image = UIImage(named: "circle")
         imgCircle.contentMode = .ScaleAspectFit
@@ -418,7 +410,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         imgDescriptionText.image = UIImage(named: "smart_logo")
         imgDescriptionText.contentMode = .ScaleAspectFit
         
-        //lblBottom.backgroundColor = UIColor.blueColor()
+        lblBottom.textColor = UIColor.grayColor()
         //lblBottom.alpha = 0.5
         lblBottom.text = "Use your phone to locate any iBeacons around you"
         lblBottom.textAlignment = .Center
@@ -438,105 +430,78 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         self.view.addSubview(viewDescriptionBox)
         self.view.addSubview(lblBottom)
         
-        //self.viewTitleBox.backgroundColor = UIColor.blueColor()
-//        self.viewTitleBox.addSubview(viewLoading1)
-//        self.viewTitleBox.addSubview(viewLoading2)
-//        self.viewTitleBox.addSubview(viewLoading3)
-//        self.viewTitleBox.addSubview(viewLoading4)
-        
+        //        //self.viewTitleBox.backgroundColor = UIColor.blueColor()
+        //        self.viewTitleBox.addSubview(viewLoading1)
+        //        self.viewTitleBox.addSubview(viewLoading2)
+        //        self.viewTitleBox.addSubview(viewLoading3)
+        //        self.viewTitleBox.addSubview(viewLoading4)
         
         //-- -- -- -- -- -- -- -- -- -- --
-//        viewMainbackground.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(0)
-//            make.left.equalTo(0)
-//            make.bottom.equalTo(0)
-//            make.right.equalTo(0)
-//        }
-        viewMainbackground.frame = self.view.frame
-        viewMainbackground.frame.origin.x = 0
-        viewMainbackground.frame.origin.y = 0
+        
+        viewMainbackground.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
+        
         
         
         let titleBoxSize = frmView.size.width - 60
-//        viewTitleBox.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(60)
-//            make.size.equalTo(CGSizeMake(titleBoxSize, titleBoxSize))
-//            make.centerX.equalTo(viewMainbackground)
-//        }
-        viewTitleBox.frame.size = CGSizeMake(titleBoxSize, titleBoxSize)
-        viewTitleBox.center.x = viewMainbackground.frame.size.width / 2
-        viewTitleBox.frame.origin.y = 60
-        
-        
+        let titleBoxSizeIpad = frmView.size.width - 240
+        viewTitleBox.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(Env.iPad ? 40 : 60)
+            make.size.equalTo(Env.iPad ? CGSizeMake(titleBoxSizeIpad, titleBoxSizeIpad) : CGSizeMake(titleBoxSize, titleBoxSize))
+            make.centerX.equalTo(viewMainbackground)
+        }
+        //        viewTitleBox.backgroundColor = UIColor.blueColor()
+        //        viewTitleBox.alpha = 0.6
         
         let DesBoxSize = frmView.size.width - 120
-//        viewDescriptionBox.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
-//            make.top.equalTo(viewTitleBox).offset(titleBoxSize - 120)
-//            make.centerX.equalTo(viewMainbackground)
-//        }
-        viewDescriptionBox.frame.size = CGSizeMake(DesBoxSize, DesBoxSize)
-        viewDescriptionBox.center.x = viewMainbackground.frame.size.width / 2
-        viewDescriptionBox.center.y = viewTitleBox.frame.size.height - titleBoxSize - 120
-        
-        
-        
+        let DesBoxSizeIpad = frmView.size.width - 380
+        viewDescriptionBox.snp_makeConstraints { (make) -> Void in
+            //make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
+            make.size.equalTo(Env.iPad ? CGSizeMake(DesBoxSizeIpad, DesBoxSizeIpad) : CGSizeMake(DesBoxSize, DesBoxSize))
+            make.top.equalTo(viewTitleBox).offset(Env.iPad ? titleBoxSize - 420 : titleBoxSize - 120)
+            make.centerX.equalTo(viewMainbackground)
+        }
+        //        viewDescriptionBox.backgroundColor = UIColor.greenColor()
+        //        viewDescriptionBox.alpha = 0.6
         
         //------
-//        imgBackground.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(0)
-//            make.left.equalTo(0)
-//            make.bottom.equalTo(0)
-//            make.right.equalTo(0)
-//        }
-        imgBackground.frame.size = self.viewMainbackground.frame.size
-        imgBackground.center.x = 0
-        imgBackground.center.y = 0
-        
-        
+        imgBackground.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(0)
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+        }
         
         let imgTitleBoxSize = frmView.size.width - 80
-//        imgCircle.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(imgTitleBoxSize, imgTitleBoxSize))
-//            make.center.equalTo(viewTitleBox)
-//        }
-        imgCircle.frame.size = CGSizeMake(imgTitleBoxSize, imgTitleBoxSize)
-        imgCircle.center.x = viewTitleBox.frame.size.width / 2
-        imgCircle.center.y = viewTitleBox.frame.size.height / 2
-        
-        
+        let imgTitleBoxSizeIpad = frmView.size.width - 290
+        imgCircle.snp_makeConstraints { (make) -> Void in
+            //make.size.equalTo(CGSizeMake(imgTitleBoxSize, imgTitleBoxSize))
+            make.size.equalTo(Env.iPad ? CGSizeMake(imgTitleBoxSizeIpad, imgTitleBoxSizeIpad) : CGSizeMake(imgTitleBoxSize, imgTitleBoxSize))
+            make.center.equalTo(viewTitleBox)
+        }
         
         let imgTitleTextSize = frmView.size.width - 50
-//        imgTitleText.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(imgTitleTextSize, imgTitleTextSize))
-//            make.center.equalTo(viewTitleBox)
-//        }
-        imgTitleText.frame.size = CGSizeMake(imgTitleTextSize, imgTitleTextSize)
-        imgTitleText.center.x = viewTitleBox.frame.size.width / 2
-        imgTitleText.center.y = viewTitleBox.frame.size.height / 2
+        let imgTitleTextSizeIpad = frmView.size.width - 260
+        imgTitleText.snp_makeConstraints { (make) -> Void in
+            //make.size.equalTo(CGSizeMake(imgTitleTextSize, imgTitleTextSize))
+            make.size.equalTo(Env.iPad ? CGSizeMake(imgTitleTextSizeIpad, imgTitleTextSizeIpad) : CGSizeMake(imgTitleTextSize, imgTitleTextSize))
+            make.center.equalTo(viewTitleBox)
+        }
         
+        imgDescriptionText.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(Env.iPad ? CGSizeMake(DesBoxSizeIpad, DesBoxSizeIpad) : CGSizeMake(DesBoxSize, DesBoxSize))
+            make.center.equalTo(viewDescriptionBox)
+        }
         
-        
-        
-//        imgDescriptionText.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(DesBoxSize, DesBoxSize))
-//            make.center.equalTo(viewDescriptionBox)
-//        }
-        imgDescriptionText.frame.size = CGSizeMake(DesBoxSize, DesBoxSize)
-        imgDescriptionText.center.x = viewDescriptionBox.frame.size.width / 2
-        imgDescriptionText.center.y = viewDescriptionBox.frame.size.height / 2
-        
-        
-        
-        
-//        lblBottom.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(self.view.frame.size.width - 20, 40))
-//            make.centerX.equalTo(self.view)
-//            make.bottom.equalTo(0)
-//        }
-        lblBottom.frame.size = CGSizeMake(self.view.frame.size.width - 20, 40)
-        lblBottom.center.x = self.view.frame.size.width / 2
-        lblBottom.frame.origin.y = self.view.frame.size.height - lblBottom.frame.size.height
+        lblBottom.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(CGSizeMake(self.view.frame.size.width - 20, 40))
+            make.centerX.equalTo(self.view)
+            make.bottom.equalTo(0)
+        }
         
         // ===== Loading... =====
         
@@ -546,26 +511,26 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
         //self.viewLoading1 = self.setViewLoadingStart(self.viewLoading1)
         
-//        let sizeViewLoadingStart = viewTitleBox.frame.size.width - 140
-//        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
-//        
-//        viewLoading1.frame = frmLoadingStart
-//        
-//        //self.viewLoading1.backgroundColor = UIColor.greenColor()
-//        self.viewLoading1.layer.cornerRadius = self.viewLoading1.frame.size.width / 2
-//        self.viewLoading1.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.viewLoading1.layer.borderWidth = 5
-//        
-//        self.viewLoading2.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.viewLoading2.layer.borderWidth = 5
-//        
-//        self.viewLoading3.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.viewLoading4.layer.borderWidth = 5
-//        
-//        self.viewLoading4.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.viewLoading4.layer.borderWidth = 5
+        //        let sizeViewLoadingStart = viewTitleBox.frame.size.width - 140
+        //        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
+        //
+        //        viewLoading1.frame = frmLoadingStart
+        //
+        //        //self.viewLoading1.backgroundColor = UIColor.greenColor()
+        //        self.viewLoading1.layer.cornerRadius = self.viewLoading1.frame.size.width / 2
+        //        self.viewLoading1.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.viewLoading1.layer.borderWidth = 5
+        //
+        //        self.viewLoading2.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.viewLoading2.layer.borderWidth = 5
+        //
+        //        self.viewLoading3.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.viewLoading4.layer.borderWidth = 5
+        //
+        //        self.viewLoading4.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.viewLoading4.layer.borderWidth = 5
         
-//        let sizeViewLoading = self.viewTitleBox.frame.size.width
+        //        let sizeViewLoading = self.viewTitleBox.frame.size.width
         //        pulsator.translatesAutoresizingMaskIntoConstraints = true
         //pulsator.frame = CGRectMake(0, 0, sizeViewLoading, sizeViewLoading)
         
@@ -576,53 +541,55 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     
     
-//    func setViewLoadingStart(view:UIView) -> UIView {
-//        
-//        let sizeViewLoadingStart = self.viewTitleBox.frame.size.width - 140
-////        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
-////        
-////        view.frame = frmLoadingStart
-//        
-//        //self.viewLoading1.backgroundColor = UIColor.greenColor()
-//        view.layer.cornerRadius = view.frame.size.width / 2
-//        view.layer.borderColor = UIColor.whiteColor().CGColor
-//        view.layer.borderWidth = 5
-//        
-//        view.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(sizeViewLoadingStart, sizeViewLoadingStart))
-//            make.center.equalTo(viewTitleBox)
-//        }
-//        
-//        return view
-//    }
-//    
+    //    func setViewLoadingStart(view:UIView) -> UIView {
+    //
+    //        let sizeViewLoadingStart = self.viewTitleBox.frame.size.width - 140
+    ////        let frmLoadingStart = CGRectMake(70, 70, sizeViewLoadingStart, sizeViewLoadingStart)
+    ////
+    ////        view.frame = frmLoadingStart
+    //
+    //        //self.viewLoading1.backgroundColor = UIColor.greenColor()
+    //        view.layer.cornerRadius = view.frame.size.width / 2
+    //        view.layer.borderColor = UIColor.whiteColor().CGColor
+    //        view.layer.borderWidth = 5
+    //
+    //        view.snp_makeConstraints { (make) -> Void in
+    //            make.size.equalTo(CGSizeMake(sizeViewLoadingStart, sizeViewLoadingStart))
+    //            make.center.equalTo(viewTitleBox)
+    //        }
+    //
+    //        return view
+    //    }
+    //
     func setViewIsLoading() {
         
         let viewForpulsator = UIView()
         viewTitleBox.addSubview(viewForpulsator)
-//        viewForpulsator.snp_makeConstraints { (make) -> Void in
-//            make.size.equalTo(CGSizeMake(1, 1))
-//            make.center.equalTo(viewTitleBox)
-//        }
-        viewTitleBox.backgroundColor = UIColor.greenColor()
-        viewTitleBox.alpha = 0.7
-        viewForpulsator.frame.size = CGSizeMake(1, 1)
-        viewForpulsator.frame.origin.x = viewTitleBox.frame.size.width / 2
-        viewForpulsator.frame.origin.y = viewTitleBox.frame.size.height / 2
-        viewForpulsator.backgroundColor = UIColor.redColor()
+        viewForpulsator.snp_makeConstraints { (make) -> Void in
+            make.size.equalTo(CGSizeMake(1, 1))
+            make.center.equalTo(viewTitleBox)
+        }
         
         
         viewForpulsator.layer.addSublayer(pulsator)
         
         
-        //pulsator.backgroundColor = UIColor.whiteColor().CGColor
         pulsator.backgroundColor = UIColor(red: 193/255, green: 193/255, blue: 193/255, alpha: 1.0).CGColor
-        pulsator.radius = 160
+        //pulsator.backgroundColor = UIColor.whiteColor().CGColor
+        pulsator.radius = Env.iPad ? 280 : 160
         pulsator.animationDuration = 6
         pulsator.numPulse = 6
         pulsator.contentsCenter = self.viewTitleBox.frame
-        pulsator.start()
+        //pulsator.start()
         
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startPulsator), userInfo: nil, repeats: false)
+        
+    }
+    
+    func startPulsator() {
+        
+        
+        pulsator.start()
     }
     
     

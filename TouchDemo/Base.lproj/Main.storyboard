@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="QIq-k3-jLK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QIq-k3-jLK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,22 +9,30 @@
         <scene sceneID="4Eh-PL-8yh">
             <objects>
                 <viewController title=" หน้าเดิม" id="QIq-k3-jLK" customClass="ViewController" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Ni-Bn-8fT"/>
+                        <viewControllerLayoutGuide type="bottom" id="zoE-3S-9Ge"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7GD-Li-UGE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENZ-sS-CET" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265.60000000000002" y="433.57333333333332"/>
+            <point key="canvasLocation" x="498.00000000000006" y="457.99999999999994"/>
         </scene>
         <!--Dashbord-->
         <scene sceneID="KYO-jI-lf5">
             <objects>
                 <viewController storyboardIdentifier="DashboardVC" title="Dashbord" id="eCc-Kf-8qn" customClass="DashboardVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Tk-S9-kIy"/>
+                        <viewControllerLayoutGuide type="bottom" id="bRL-6i-cFM"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Kfr-b5-FbM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.60067189239999996" green="0.96279952130000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -32,14 +40,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHk-mw-9Nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="2006"/>
+            <point key="canvasLocation" x="616.875" y="2119.0140845070423"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6vz-YF-hyZ">
             <objects>
                 <viewController id="R1M-hl-Gp1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nql-wO-keg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lp0-kt-ndr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wR4-5u-YUu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -47,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgP-dh-Rtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="2665"/>
+            <point key="canvasLocation" x="-46.875" y="2815.1408450704225"/>
         </scene>
         <!--Main Tab Bar-->
         <scene sceneID="mPi-pu-hFn">
@@ -67,19 +79,22 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKV-HD-FY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="1149"/>
+            <point key="canvasLocation" x="616.875" y="1213.732394366197"/>
         </scene>
         <!--Phuket-->
         <scene sceneID="cU4-xR-E0C">
             <objects>
                 <viewController storyboardIdentifier="PhuketVC" title="Phuket" id="qny-Xc-CP6" customClass="PhuketVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IVT-iw-97G"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Tg-8g-FuP"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ptc-qb-v0j">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="R4D-DK-8yk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4D-DK-8yk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                 <connections>
@@ -87,6 +102,12 @@
                                 </connections>
                             </webView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="R4D-DK-8yk" firstAttribute="leading" secondItem="ptc-qb-v0j" secondAttribute="leading" id="09o-xY-uYd"/>
+                            <constraint firstItem="R4D-DK-8yk" firstAttribute="top" secondItem="IVT-iw-97G" secondAttribute="bottom" id="3c4-OR-eWy"/>
+                            <constraint firstItem="R4D-DK-8yk" firstAttribute="bottom" secondItem="0Tg-8g-FuP" secondAttribute="top" id="w1w-ej-3dx"/>
+                            <constraint firstAttribute="trailing" secondItem="R4D-DK-8yk" secondAttribute="trailing" id="yCo-QP-nu7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Phuket" id="Diy-Do-K4C"/>
                     <connections>
@@ -95,19 +116,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBm-jQ-RIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="1902"/>
+            <point key="canvasLocation" x="2360.625" y="2009.1549295774646"/>
         </scene>
         <!--Coupon-->
         <scene sceneID="ayd-MM-euy">
             <objects>
                 <viewController storyboardIdentifier="CouponVC" title="Coupon" id="Tpc-sd-6LC" customClass="CouponVC" customModule="TouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KJT-gj-7zI"/>
+                        <viewControllerLayoutGuide type="bottom" id="awh-Uu-GRu"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HRQ-YU-XXq">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="YcO-G5-I57">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcO-G5-I57">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                 <connections>
@@ -115,6 +139,12 @@
                                 </connections>
                             </webView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="YcO-G5-I57" firstAttribute="leading" secondItem="HRQ-YU-XXq" secondAttribute="leading" id="Nt3-Z7-sFA"/>
+                            <constraint firstItem="YcO-G5-I57" firstAttribute="top" secondItem="KJT-gj-7zI" secondAttribute="bottom" id="Tgj-Tk-Mb3"/>
+                            <constraint firstItem="YcO-G5-I57" firstAttribute="bottom" secondItem="awh-Uu-GRu" secondAttribute="top" id="pxu-cz-lan"/>
+                            <constraint firstAttribute="trailing" secondItem="YcO-G5-I57" secondAttribute="trailing" id="qIw-4O-lZY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coupon" id="tHW-g2-cV2"/>
                     <connections>
@@ -123,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsP-ka-uiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352" y="1766"/>
+            <point key="canvasLocation" x="4410" y="1865.4929577464789"/>
         </scene>
         <!--Dashbord-->
         <scene sceneID="O52-4y-iQw">
@@ -142,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLh-9g-f2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="2006"/>
+            <point key="canvasLocation" x="-46.875" y="2119.0140845070423"/>
         </scene>
         <!--Phuket-->
         <scene sceneID="eWw-Pi-Fra">
@@ -161,7 +191,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxi-2s-oap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="890" y="1902"/>
+            <point key="canvasLocation" x="1668.75" y="2009.1549295774646"/>
         </scene>
         <!--Coupon-->
         <scene sceneID="8AO-Ww-Q4T">
@@ -180,7 +210,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4u-ZX-5Rg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="1766"/>
+            <point key="canvasLocation" x="3412.5" y="1865.4929577464789"/>
         </scene>
     </scenes>
 </document>
