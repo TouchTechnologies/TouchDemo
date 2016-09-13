@@ -78,6 +78,7 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         let alertController = UIAlertController(title: "Start Test Action", message: "Waitng for alert", preferredStyle:UIAlertControllerStyle.Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in
             print("you have pressed OK button");
+            self.startPulsator()
         }
         alertController.addAction(OKAction)
         
@@ -88,6 +89,14 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden == true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Slide
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -95,6 +104,8 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         //UIApplication.sharedApplication().statusBarStyle = .Default
         
         //longPress
+        
+        
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.setTestAction(_:)))
         longPress.delaysTouchesBegan = true
@@ -115,6 +126,8 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
             beaconContentFactory: CachingContentFactory(beaconContentFactory: BeaconDetailsCloudFactory()))
         self.proximityContentManager.delegate = self
         self.proximityContentManager.startContentUpdates()
+        
+        self.setTestAction(UIGestureRecognizer())
     }
     
     func proximityContentManager(proximityContentManager: ProximityContentManager, didUpdateContent content: AnyObject?) {
@@ -154,7 +167,8 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
+        print("viewDidAppear Dashboard")
+        startPulsator()
     }
     
     var tmr:NSTimer = NSTimer()
@@ -175,7 +189,33 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         tmStop()
     }
     
+    func setTabBarVisible(visible:Bool, animated:Bool) {
+        // bail if the current state matches the desired state
+        if (tabBarIsVisible() == visible) { return }
+        
+        // get a frame calculation ready
+        let frame = self.tabBarController?.tabBar.frame
+        let height = frame?.size.height
+        let offsetY = (visible ? -height! : height)
+        
+        // zero duration means no animation
+        let duration:NSTimeInterval = (animated ? 0.25 : 0.0)
+        
+        //  animate the tabBar
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+                return
+            }
+        }
+    }
+    
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
+    
     func sayHello() {
+        
         
         if(self.viewAlert.alpha < 1){
             
@@ -192,6 +232,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
                     self.viewBanner.setCurrentPage(0, animated: false)
                     
                     UIView.animateWithDuration(0.2, animations: {
+                        
+                        
+                        /// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+                        self.setTabBarVisible(false, animated: true)
+                        self.navigationController?.setNavigationBarHidden(true, animated: true)
+                        /// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        
                         
                         self.viewAlertBg.hidden = false
                         self.viewAlertBg.alpha = 0.9
@@ -229,9 +276,15 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
     
     func closeBanner(andOpenDelay:Bool = false) {
         
+        
         tmr = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(ViewController.tmTickTock), userInfo: nil, repeats: true)
         pulsator.start()
         UIView.animateWithDuration(0.5, animations: {
+            
+            /// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+            self.setTabBarVisible(true, animated: true)
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            /// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
             
             self.viewAlertBg.hidden = false
             self.viewAlertBg.alpha = 0

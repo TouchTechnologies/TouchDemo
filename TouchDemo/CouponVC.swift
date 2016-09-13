@@ -16,6 +16,7 @@ class CouponVC: UIViewController, UIWebViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
+        loadWebview()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -34,7 +35,6 @@ class CouponVC: UIViewController, UIWebViewDelegate {
 //        testView.backgroundColor = SWColor(hexString: "#ccaaaa")
 //        self.view.addSubview(testView)
         
-        loadWebview()
         
     }
     

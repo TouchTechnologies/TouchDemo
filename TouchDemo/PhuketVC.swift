@@ -16,6 +16,7 @@ class PhuketVC: UIViewController, UIWebViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
+        loadWebview()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -71,7 +72,6 @@ class PhuketVC: UIViewController, UIWebViewDelegate {
         
         
         
-        loadWebview()
         
         //http://seeitlivethailand.com/promote_page/phuket
         
