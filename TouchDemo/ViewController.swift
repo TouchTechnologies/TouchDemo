@@ -257,12 +257,13 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
         if (bannerSet == 1){
             return [
                 UIImage(named: "ib_L_p1")!,
-                UIImage(named: "ib_L_p2")!
+                UIImage(named: "ib_r_p1")!
             ]
         }else if (bannerSet == 2){
             return [
-                UIImage(named: "ib_r_p1")!,
+                UIImage(named: "ib_L_p2")!,
                 UIImage(named: "ib_r_p2")!
+//                UIImage(named: "ib_r_p2")!
             ]
         }else if (bannerSet == 3){
             return [
@@ -272,8 +273,9 @@ class ViewController: UIViewController, ProximityContentManagerDelegate, KDCycle
             ]
         }else{
             return [
-                UIImage(named: "ib_L_p1")!,
-                UIImage(named: "ib_L_p2")!
+//                UIImage(named: "ib_L_p1")!,
+                UIImage(named: "ib_L_p2")!,
+                UIImage(named: "ib_r_p2")!
             ]
         }
         
